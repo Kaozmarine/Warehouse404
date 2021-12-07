@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Warehouse404
 {
-    public partial class MainWindow : Form
+    public partial class MainForm : Form
     {
-        public MainWindow()
+        public MainForm()
         {
             InitializeComponent();
         }

@@ -9,7 +9,7 @@ namespace Warehouse404
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainWindow());
+            Application.Run(new MainForm());
         }
     }
 }
