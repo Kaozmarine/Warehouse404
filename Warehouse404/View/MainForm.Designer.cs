@@ -28,19 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.splitContainer = new System.Windows.Forms.SplitContainer();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
+            this.splitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
-            // MainWindow
+            // splitContainer
+            // 
+            this.splitContainer.Cursor = System.Windows.Forms.Cursors.VSplit;
+            this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer.Name = "splitContainer";
+            this.splitContainer.Size = new System.Drawing.Size(1242, 776);
+            this.splitContainer.SplitterDistance = 370;
+            this.splitContainer.TabIndex = 0;
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1242, 776);
-            this.Name = "MainWindow";
+            this.Controls.Add(this.splitContainer);
+            this.Name = "MainForm";
             this.Text = "MainWindow";
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
+            this.splitContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private SplitContainer splitContainer;
     }
 }

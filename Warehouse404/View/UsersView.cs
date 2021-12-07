@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Warehouse404.Products
+namespace Warehouse404.View
 {
-    public partial class ViewProduct : Form
+    public partial class UsersView : UserControl
     {
-        public ViewProduct()
+        public UsersView()
         {
             InitializeComponent();
         }

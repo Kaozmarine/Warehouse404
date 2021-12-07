@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Warehouse404.Products
 {
-    public partial class EditProduct : Form
+    public partial class EditProductForm : Form
     {
-        public EditProduct()
+        public EditProductForm()
         {
             InitializeComponent();
         }
