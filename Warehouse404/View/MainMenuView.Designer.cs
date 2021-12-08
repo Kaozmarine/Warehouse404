@@ -28,89 +28,95 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.loginButton = new System.Windows.Forms.Button();
+            this.usersButton = new System.Windows.Forms.Button();
+            this.clientsButton = new System.Windows.Forms.Button();
+            this.productsButton = new System.Windows.Forms.Button();
+            this.ordersButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button5
+            // loginButton
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button5.Location = new System.Drawing.Point(4, 415);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(345, 66);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "Wyloguj";
-            this.button5.UseVisualStyleBackColor = true;
+            this.loginButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.loginButton.Location = new System.Drawing.Point(0, 264);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(5);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(220, 66);
+            this.loginButton.TabIndex = 9;
+            this.loginButton.Text = "Wyloguj";
+            this.loginButton.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // usersButton
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.Location = new System.Drawing.Point(4, 215);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(345, 66);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Użytkownicy";
-            this.button4.UseVisualStyleBackColor = true;
+            this.usersButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.usersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.usersButton.Location = new System.Drawing.Point(0, 198);
+            this.usersButton.Margin = new System.Windows.Forms.Padding(5);
+            this.usersButton.Name = "usersButton";
+            this.usersButton.Size = new System.Drawing.Size(220, 66);
+            this.usersButton.TabIndex = 8;
+            this.usersButton.Text = "Użytkownicy";
+            this.usersButton.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // clientsButton
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(4, 143);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(345, 66);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Klienci";
-            this.button3.UseVisualStyleBackColor = true;
+            this.clientsButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.clientsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.clientsButton.Location = new System.Drawing.Point(0, 132);
+            this.clientsButton.Margin = new System.Windows.Forms.Padding(5);
+            this.clientsButton.Name = "clientsButton";
+            this.clientsButton.Size = new System.Drawing.Size(220, 66);
+            this.clientsButton.TabIndex = 7;
+            this.clientsButton.Text = "Klienci";
+            this.clientsButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // productsButton
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(4, 70);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(345, 66);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Produkty";
-            this.button2.UseVisualStyleBackColor = true;
+            this.productsButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.productsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.productsButton.Location = new System.Drawing.Point(0, 66);
+            this.productsButton.Margin = new System.Windows.Forms.Padding(5);
+            this.productsButton.Name = "productsButton";
+            this.productsButton.Size = new System.Drawing.Size(220, 66);
+            this.productsButton.TabIndex = 6;
+            this.productsButton.Text = "Produkty";
+            this.productsButton.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // ordersButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(4, -2);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(345, 66);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Zamównienia";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ordersButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ordersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ordersButton.Location = new System.Drawing.Point(0, 0);
+            this.ordersButton.Margin = new System.Windows.Forms.Padding(5);
+            this.ordersButton.Name = "ordersButton";
+            this.ordersButton.Size = new System.Drawing.Size(220, 66);
+            this.ordersButton.TabIndex = 5;
+            this.ordersButton.Text = "Zamównienia";
+            this.ordersButton.UseVisualStyleBackColor = true;
             // 
             // MainMenuView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.loginButton);
+            this.Controls.Add(this.usersButton);
+            this.Controls.Add(this.clientsButton);
+            this.Controls.Add(this.productsButton);
+            this.Controls.Add(this.ordersButton);
+            this.MaximumSize = new System.Drawing.Size(220, 335);
             this.Name = "MainMenuView";
-            this.Size = new System.Drawing.Size(355, 495);
+            this.Size = new System.Drawing.Size(220, 335);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Button button5;
-        private Button button4;
-        private Button button3;
-        private Button button2;
-        private Button button1;
+        private Button loginButton;
+        private Button usersButton;
+        private Button clientsButton;
+        private Button productsButton;
+        private Button ordersButton;
     }
 }
