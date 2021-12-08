@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.productsGroupBox = new System.Windows.Forms.GroupBox();
+            this.mainGroupBox = new System.Windows.Forms.GroupBox();
             this.actionsGroupBox = new System.Windows.Forms.GroupBox();
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
@@ -45,27 +45,28 @@
             this.priceFromLabel = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.productsListView = new System.Windows.Forms.ListView();
-            this.productsGroupBox.SuspendLayout();
+            this.itemsListView = new System.Windows.Forms.ListView();
+            this.mainGroupBox.SuspendLayout();
             this.actionsGroupBox.SuspendLayout();
             this.searchGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // productsGroupBox
+            // mainGroupBox
             // 
-            this.productsGroupBox.Controls.Add(this.actionsGroupBox);
-            this.productsGroupBox.Controls.Add(this.searchGroupBox);
-            this.productsGroupBox.Controls.Add(this.productsListView);
-            this.productsGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.productsGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.productsGroupBox.Location = new System.Drawing.Point(0, 0);
-            this.productsGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.productsGroupBox.Name = "productsGroupBox";
-            this.productsGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.productsGroupBox.Size = new System.Drawing.Size(768, 711);
-            this.productsGroupBox.TabIndex = 1;
-            this.productsGroupBox.TabStop = false;
-            this.productsGroupBox.Text = "Produkty";
+            this.mainGroupBox.Controls.Add(this.actionsGroupBox);
+            this.mainGroupBox.Controls.Add(this.searchGroupBox);
+            this.mainGroupBox.Controls.Add(this.itemsListView);
+            this.mainGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainGroupBox.Enabled = false;
+            this.mainGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.mainGroupBox.Location = new System.Drawing.Point(0, 0);
+            this.mainGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.mainGroupBox.Name = "mainGroupBox";
+            this.mainGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.mainGroupBox.Size = new System.Drawing.Size(768, 711);
+            this.mainGroupBox.TabIndex = 1;
+            this.mainGroupBox.TabStop = false;
+            this.mainGroupBox.Text = "Produkty";
             // 
             // actionsGroupBox
             // 
@@ -237,28 +238,28 @@
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Nazwa";
             // 
-            // productsListView
+            // itemsListView
             // 
-            this.productsListView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.productsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.productsListView.FullRowSelect = true;
-            this.productsListView.GridLines = true;
-            this.productsListView.Location = new System.Drawing.Point(4, 207);
-            this.productsListView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.productsListView.Name = "productsListView";
-            this.productsListView.Size = new System.Drawing.Size(760, 501);
-            this.productsListView.TabIndex = 3;
-            this.productsListView.UseCompatibleStateImageBehavior = false;
-            this.productsListView.View = System.Windows.Forms.View.Details;
+            this.itemsListView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.itemsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.itemsListView.FullRowSelect = true;
+            this.itemsListView.GridLines = true;
+            this.itemsListView.Location = new System.Drawing.Point(4, 207);
+            this.itemsListView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.itemsListView.Name = "itemsListView";
+            this.itemsListView.Size = new System.Drawing.Size(760, 501);
+            this.itemsListView.TabIndex = 3;
+            this.itemsListView.UseCompatibleStateImageBehavior = false;
+            this.itemsListView.View = System.Windows.Forms.View.Details;
             // 
             // ProductsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.productsGroupBox);
+            this.Controls.Add(this.mainGroupBox);
             this.Name = "ProductsView";
             this.Size = new System.Drawing.Size(768, 711);
-            this.productsGroupBox.ResumeLayout(false);
+            this.mainGroupBox.ResumeLayout(false);
             this.actionsGroupBox.ResumeLayout(false);
             this.searchGroupBox.ResumeLayout(false);
             this.searchGroupBox.PerformLayout();
@@ -268,7 +269,7 @@
 
         #endregion
 
-        private GroupBox productsGroupBox;
+        private GroupBox mainGroupBox;
         private GroupBox actionsGroupBox;
         private Button deleteButton;
         private Button editButton;
@@ -285,6 +286,6 @@
         private Label priceFromLabel;
         private TextBox nameTextBox;
         private Label nameLabel;
-        private ListView productsListView;
+        private ListView itemsListView;
     }
 }

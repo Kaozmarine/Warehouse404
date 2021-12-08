@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Persistence\" />
     <Folder Include="Presentation\Products\" />
     <Folder Include="Presentation\Clients\" />
     <Folder Include="Presentation\Users\" />
