@@ -1,4 +1,4 @@
-﻿namespace Warehouse404.Products
+﻿namespace Warehouse404.View
 {
     partial class AddProductForm
     {

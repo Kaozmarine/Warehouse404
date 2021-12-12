@@ -1,3 +1,5 @@
+using Warehouse404.View;
+
 namespace Warehouse404
 {
     internal static class Program
@@ -10,6 +12,8 @@ namespace Warehouse404
         {
             ApplicationConfiguration.Initialize();
             Application.Run(new MainForm());
+
+
         }
     }
 }

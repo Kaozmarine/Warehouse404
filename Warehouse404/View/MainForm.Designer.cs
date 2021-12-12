@@ -1,4 +1,4 @@
-﻿namespace Warehouse404
+﻿namespace Warehouse404.View
 {
     partial class MainForm
     {
