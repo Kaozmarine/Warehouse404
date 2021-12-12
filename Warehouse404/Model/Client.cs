@@ -8,5 +8,6 @@ namespace Warehouse404.Model
 {
     internal class Client
     {
+        public int Id { get; set; }
     }
 }

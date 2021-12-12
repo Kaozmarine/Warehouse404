@@ -11,9 +11,11 @@ namespace Warehouse404
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainForm());
 
-
+            var mainForm = new MainForm();
+            mainForm.Configure();
+            
+            Application.Run(mainForm);
         }
     }
 }

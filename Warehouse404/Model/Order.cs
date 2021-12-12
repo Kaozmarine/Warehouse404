@@ -8,5 +8,6 @@ namespace Warehouse404.Model
 {
     internal class Order
     {
+        public int Id { get; set; }
     }
 }

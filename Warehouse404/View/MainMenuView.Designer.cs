@@ -44,8 +44,9 @@
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(220, 66);
             this.loginButton.TabIndex = 9;
-            this.loginButton.Text = "Wyloguj";
+            this.loginButton.Text = "Logowanie";
             this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // usersButton
             // 
@@ -58,6 +59,7 @@
             this.usersButton.TabIndex = 8;
             this.usersButton.Text = "Użytkownicy";
             this.usersButton.UseVisualStyleBackColor = true;
+            this.usersButton.Click += new System.EventHandler(this.UsersButton_Click);
             // 
             // clientsButton
             // 
@@ -70,6 +72,7 @@
             this.clientsButton.TabIndex = 7;
             this.clientsButton.Text = "Klienci";
             this.clientsButton.UseVisualStyleBackColor = true;
+            this.clientsButton.Click += new System.EventHandler(this.ClientsButton_Click);
             // 
             // productsButton
             // 
@@ -82,6 +85,7 @@
             this.productsButton.TabIndex = 6;
             this.productsButton.Text = "Produkty";
             this.productsButton.UseVisualStyleBackColor = true;
+            this.productsButton.Click += new System.EventHandler(this.ProductsButton_Click);
             // 
             // ordersButton
             // 
@@ -94,6 +98,7 @@
             this.ordersButton.TabIndex = 5;
             this.ordersButton.Text = "Zamównienia";
             this.ordersButton.UseVisualStyleBackColor = true;
+            this.ordersButton.Click += new System.EventHandler(this.OrdersButton_Click);
             // 
             // MainMenuView
             // 

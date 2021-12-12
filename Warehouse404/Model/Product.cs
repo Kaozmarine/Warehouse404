@@ -8,5 +8,6 @@ namespace Warehouse404.Model
 {
     internal class Product
     {
+        public int Id { get; set; }
     }
 }

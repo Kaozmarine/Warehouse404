@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Warehouse404.View
+namespace Warehouse404.View.Dialogs
 {
     public partial class EditProductForm : Form
     {
