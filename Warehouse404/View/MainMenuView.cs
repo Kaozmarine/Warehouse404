@@ -56,6 +56,11 @@ namespace Warehouse404.View
             }
         }
 
+        public void ChangeLoginButtonStatus(bool isLoggedIn)
+        {
+            loginButton.Text = isLoggedIn ? "Wylogowanie" : "Logowanie";
+        }
+
         private void LoginButton_Click(object sender, EventArgs e)
         {
             OnMenuLoginClick?.Invoke(sender, e);   

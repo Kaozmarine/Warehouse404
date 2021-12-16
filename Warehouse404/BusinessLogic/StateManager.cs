@@ -10,6 +10,6 @@ namespace Warehouse404.BusinessLogic
 {
     internal static class StateManager
     {
-        public static User? CurrentUser { get; set; }
+        public static User? CurrentUser { get; set; } = null;
     }
 }

@@ -2,10 +2,10 @@
 {
     public enum Role
     {
-        Store = 1,
-
+        Owner = 1,
+        
         Warehoouse = 2,
-
-        Owner = 3
+        
+        Store = 3
     }
 }

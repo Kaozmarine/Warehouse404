@@ -13,7 +13,7 @@ namespace Warehouse404.View.Dialogs
     public partial class LoginForm : Form
     {
         public string Login { get => loginTextBox.Text; }
-        public string Password { get; set; } = string.Empty;
+        public string Password { get => passwordTextBox.Text; }
 
         public LoginForm()
         {

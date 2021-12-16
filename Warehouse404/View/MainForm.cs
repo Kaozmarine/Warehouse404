@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -9,12 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Warehouse404.BusinessLogic;
+using Warehouse404.Persistence;
 using Warehouse404.View.Dialogs;
 
 namespace Warehouse404.View
 {
     public partial class MainForm : Form
     {
+        private DatabaseMapper databaseMapper = new DatabaseMapper(ConfigurationManager.ConnectionStrings["Warehouse"].ConnectionString);
         private ClientsView clientsView = new ClientsView();
         private MainMenuView menuView = new MainMenuView();
         private OrdersView ordersView = new OrdersView();
@@ -71,12 +74,27 @@ namespace Warehouse404.View
                 var loginDialog = new LoginForm();
                 if (loginDialog.ShowDialog(this) == DialogResult.OK)
                 {
-                    // Try to login
+                    if (databaseMapper.Login(loginDialog.Login, loginDialog.Password))
+                    {
+                        menuView.ChangeLoginButtonStatus(true);
+                        MessageBox.Show($"Zalogowano poprawnie.\nWitaj {StateManager.CurrentUser?.Name}!", 
+                            "Status logowania", 
+                            MessageBoxButtons.OK, 
+                            MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Logowanie nie udało się!.\nSprawdź czy wpisujesz poprawne dane!", 
+                            "Status logowania", 
+                            MessageBoxButtons.OK, 
+                            MessageBoxIcon.Error);
+                    }                                 
                 }
             }
             else
             {
-                // logout
+                menuView.ChangeLoginButtonStatus(false);
+                StateManager.CurrentUser = null;
             }
             
         }
