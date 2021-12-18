@@ -6,8 +6,18 @@ using System.Threading.Tasks;
 
 namespace Warehouse404.Model
 {
-    internal class Order
+    public class Order
     {
         public int Id { get; set; }
+
+        public OrderStatus Status { get; set; }
+
+        public Client Client { get; set; } = new Client();
+
+        public List<Product> Products { get; set; } = new List<Product>();
+
+        public DateTime Date { get; set; }
+
+        public decimal Total { get; set; }
     }
 }

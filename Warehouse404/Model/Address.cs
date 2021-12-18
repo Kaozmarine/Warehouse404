@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Warehouse404.Model
 {
-    internal class Address
+    public class Address
     {
         public int Id { get; set; }
 
-        public string Town { get; set; }
+        public string Town { get; set; } = string.Empty;
 
-        public string Street { get; set; }
+        public string Street { get; set; } = string.Empty;
 
-        public string BuildingNumber { get; set; }
+        public string BuildingNumber { get; set; } = string.Empty;
 
-        public string ApartmentNumber { get; set; }
+        public string ApartmentNumber { get; set; } = string.Empty;
 
-        public string PostalCode { get; set; }
+        public string PostalCode { get; set; } = string.Empty;
     }
 }

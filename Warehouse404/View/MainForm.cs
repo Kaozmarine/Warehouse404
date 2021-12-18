@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Warehouse404.BusinessLogic;
+using Warehouse404.Model;
 using Warehouse404.Persistence;
 using Warehouse404.View.Dialogs;
 
@@ -18,15 +19,21 @@ namespace Warehouse404.View
     public partial class MainForm : Form
     {
         private DatabaseMapper databaseMapper = new DatabaseMapper(ConfigurationManager.ConnectionStrings["Warehouse"].ConnectionString);
-        private ClientsView clientsView = new ClientsView();
-        private MainMenuView menuView = new MainMenuView();
-        private OrdersView ordersView = new OrdersView();
-        private ProductsView productsView = new ProductsView();
-        private UsersView usersView = new UsersView();
+        private MainMenuView menuView;
+        private ClientsView clientsView;        
+        private OrdersView ordersView;
+        private ProductsView productsView;
+        private UsersView usersView;
 
         public MainForm()
         {
             InitializeComponent();
+            
+            clientsView = new ClientsView(databaseMapper);
+            ordersView = new OrdersView(databaseMapper);
+            productsView = new ProductsView(databaseMapper);
+            usersView = new UsersView(databaseMapper);
+            menuView = new MainMenuView();
         }
 
         public void Configure()
@@ -44,27 +51,34 @@ namespace Warehouse404.View
             menuView.ConfigureForRole(StateManager.CurrentUser?.Role);
 
             // View
-
+            clientsView.Dock = DockStyle.Fill;
+            ordersView.Dock = DockStyle.Fill;
+            productsView.Dock = DockStyle.Fill;
+            usersView.Dock = DockStyle.Fill;
         }
 
         private void MenuView_OnMenuUsersClick(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            splitContainer.Panel2.Controls.Clear();
+            splitContainer.Panel2.Controls.Add(usersView);
         }
 
         private void MenuView_OnMenuProductsClick(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            splitContainer.Panel2.Controls.Clear();
+            splitContainer.Panel2.Controls.Add(productsView);
         }
 
         private void MenuView_OnMenuOrdersClick(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            splitContainer.Panel2.Controls.Clear();
+            splitContainer.Panel2.Controls.Add(ordersView);
         }
 
         private void MenuView_OnMenuClientsClick(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            splitContainer.Panel2.Controls.Clear();
+            splitContainer.Panel2.Controls.Add(clientsView);
         }
 
         private void MenuView_OnMenuLoginClick(object? sender, EventArgs e)
@@ -75,12 +89,12 @@ namespace Warehouse404.View
                 if (loginDialog.ShowDialog(this) == DialogResult.OK)
                 {
                     if (databaseMapper.Login(loginDialog.Login, loginDialog.Password))
-                    {
-                        menuView.ChangeLoginButtonStatus(true);
+                    {                        
                         MessageBox.Show($"Zalogowano poprawnie.\nWitaj {StateManager.CurrentUser?.Name}!", 
                             "Status logowania", 
                             MessageBoxButtons.OK, 
                             MessageBoxIcon.Information);
+                        menuView.ChangeLoginButtonStatus(true);
                     }
                     else
                     {
@@ -92,11 +106,15 @@ namespace Warehouse404.View
                 }
             }
             else
-            {
-                menuView.ChangeLoginButtonStatus(false);
+            {                
                 StateManager.CurrentUser = null;
+                MessageBox.Show("Wylogowano poprawnie.",
+                            "Status logowania",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                menuView.ChangeLoginButtonStatus(false);
             }
-            
+            menuView.ConfigureForRole(StateManager.CurrentUser?.Role);
         }
     }
 }

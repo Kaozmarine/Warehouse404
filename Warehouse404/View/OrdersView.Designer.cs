@@ -57,7 +57,6 @@
             this.mainGroupBox.Controls.Add(this.searchGroupBox);
             this.mainGroupBox.Controls.Add(this.itemsListView);
             this.mainGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainGroupBox.Enabled = false;
             this.mainGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.mainGroupBox.Location = new System.Drawing.Point(0, 0);
             this.mainGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -259,6 +258,7 @@
             this.Controls.Add(this.mainGroupBox);
             this.Name = "OrdersView";
             this.Size = new System.Drawing.Size(966, 779);
+            this.Tag = "Orders";
             this.mainGroupBox.ResumeLayout(false);
             this.actionsGroupBox.ResumeLayout(false);
             this.searchGroupBox.ResumeLayout(false);

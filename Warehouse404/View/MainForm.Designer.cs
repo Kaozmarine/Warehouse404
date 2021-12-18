@@ -36,12 +36,22 @@
             // splitContainer
             // 
             this.splitContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.splitContainer.Cursor = System.Windows.Forms.Cursors.VSplit;
             this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer.Location = new System.Drawing.Point(0, 0);
             this.splitContainer.Name = "splitContainer";
+            // 
+            // splitContainer.Panel1
+            // 
+            this.splitContainer.Panel1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.splitContainer.Panel1MinSize = 225;
+            // 
+            // splitContainer.Panel2
+            // 
+            this.splitContainer.Panel2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.splitContainer.Panel2MinSize = 400;
             this.splitContainer.Size = new System.Drawing.Size(1242, 776);
-            this.splitContainer.SplitterDistance = 370;
+            this.splitContainer.SplitterDistance = 225;
             this.splitContainer.TabIndex = 0;
             // 
             // MainForm

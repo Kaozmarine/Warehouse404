@@ -8,7 +8,7 @@ using Warehouse404.Model;
 
 namespace Warehouse404.BusinessLogic
 {
-    internal static class StateManager
+    public static class StateManager
     {
         public static User? CurrentUser { get; set; } = null;
     }

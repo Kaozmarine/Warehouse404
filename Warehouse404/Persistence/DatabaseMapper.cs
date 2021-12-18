@@ -14,7 +14,7 @@ using Warehouse404.Model;
 
 namespace Warehouse404.Persistence
 {
-    internal class DatabaseMapper
+    public class DatabaseMapper
     {
         private string _connectionString;
 
@@ -32,7 +32,8 @@ namespace Warehouse404.Persistence
                 string sql = @"SELECT
                     id_users AS Id,
                     users_name AS Name,
-                    users_role AS Role
+                    users_role AS Role,
+                    users_login AS Login
                     FROM users 
                     WHERE users_login=@db_login AND users_password=@db_password
                     LIMIT 1";
@@ -47,6 +48,155 @@ namespace Warehouse404.Persistence
             }
 
             return result;
+        }
+
+        public List<User> GetUsers()
+        {
+            var users = new List<User>();
+
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                string sql = @"SELECT
+                    id_users AS Id,
+                    users_name AS Name,
+                    users_role AS Role,
+                    users_login AS Login
+                    FROM users 
+                    ";
+
+                users = connection.Query<User>(sql).ToList();
+            }
+
+            return users;
+        }
+
+        public List<Order> GetOrders()
+        {
+            var orders = new List<Order>();
+
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                string sql = @"SELECT
+                    id_orders AS Id,
+                    orders_status AS Status,
+                    orders_date AS Date,
+                    orders_total AS Total,
+                    id_products AS Id,
+                    products_name AS Name,
+                    products_manufacturer AS Manufacturer,
+                    products_catalog_number AS CatalogNumber,
+                    products_category AS Category,
+                    products_count AS Count,
+                    products_price AS Price,
+                    products_rack AS Rack,
+                    products_shelf AS Shelf,
+                    id_clients AS Id,
+                    clients_is_company AS IsCompany,
+                    clients_name AS Name,
+                    clients_entity_number AS EntityNumber,
+                    clients_phone_number AS PhoneNumber,
+                    clients_email AS EmailAddress,
+                    id_addresses AS Id,
+                    addresses_town AS Town,
+                    addresses_street AS Street,
+                    addresses_building_number AS BuildingNumber,
+                    addresses_apartment_number AS ApartmentNumber,
+                    addresses_postal_code AS PostalCode
+                    FROM orders_has_products
+                    INNER JOIN orders ON orders_id_orders = id_orders
+                    INNER JOIN products ON products_id_products = id_products
+                    INNER JOIN clients ON clients_id_clients = id_clients
+                    INNER JOIN addresses ON addresses_id_addresses = id_addresses
+                    ";
+
+                var orderDictionary = new Dictionary<int, Order>();
+
+                var list = connection.Query<Order, Product, Client, Address, Order>(
+                    sql,
+                    (order, product, client, address) =>
+                    {
+                        if (!orderDictionary.TryGetValue(order.Id, out Order? orderEntry))
+                        {
+                            orderEntry = order;
+                            client.Address = address;
+                            orderEntry.Client = client;
+                            orderEntry.Products = new List<Product>();
+                            orderDictionary.Add(orderEntry.Id, orderEntry);
+                        }
+                        
+                        orderEntry.Products.Add(product);
+                        return orderEntry;
+                    },
+                    splitOn: "Id")
+                .Distinct()
+                .ToList();
+
+                orders = connection.Query<Order>(sql).ToList();
+            }
+
+            return orders;
+        }
+
+        public List<Product> GetProducts()
+        {
+            var products = new List<Product>();
+
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                string sql = @"SELECT
+                    id_products AS Id,
+                    products_name AS Name,
+                    products_manufacturer AS Manufacturer,
+                    products_catalog_number AS CatalogNumber,
+                    products_category AS Category,
+                    products_count AS Count,
+                    products_price AS Price,
+                    products_rack AS Rack,
+                    products_shelf AS Shelf
+                    FROM products 
+                    ";
+
+                products = connection.Query<Product>(sql).ToList();
+            }
+
+            return products;
+        }
+
+        public List<Client> GetClients()
+        {
+            var clients = new List<Client>();
+
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                string sql = @"SELECT
+                    id_clients AS Id,
+                    clients_is_company AS IsCompany,
+                    clients_name AS Name,
+                    clients_entity_number AS EntityNumber,
+                    clients_phone_number AS PhoneNumber,
+                    clients_email AS EmailAddress,
+                    id_addresses AS Id,
+                    addresses_town AS Town,
+                    addresses_street AS Street,
+                    addresses_building_number AS BuildingNumber,
+                    addresses_apartment_number AS ApartmentNumber,
+                    addresses_postal_code AS PostalCode                    
+                    FROM clients
+                    INNER JOIN addresses ON addresses_id_addresses = id_addresses
+                    ";
+
+                clients = connection.Query<Client, Address, Client>(sql,
+                    (client, address) =>
+                    {
+                        client.Address = address;
+                        return client;
+                    },
+                    splitOn: "Id")
+                    .Distinct() 
+                    .ToList();
+            }
+
+            return clients;
         }
     }
 }

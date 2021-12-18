@@ -46,24 +46,24 @@
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.itemsListView = new System.Windows.Forms.ListView();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.mainGroupBox.SuspendLayout();
             this.actionsGroupBox.SuspendLayout();
             this.searchGroupBox.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainGroupBox
             // 
-            this.mainGroupBox.Controls.Add(this.actionsGroupBox);
-            this.mainGroupBox.Controls.Add(this.searchGroupBox);
+            this.mainGroupBox.Controls.Add(this.panel1);
             this.mainGroupBox.Controls.Add(this.itemsListView);
             this.mainGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainGroupBox.Enabled = false;
             this.mainGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.mainGroupBox.Location = new System.Drawing.Point(0, 0);
             this.mainGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.mainGroupBox.Name = "mainGroupBox";
             this.mainGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.mainGroupBox.Size = new System.Drawing.Size(772, 710);
+            this.mainGroupBox.Size = new System.Drawing.Size(762, 350);
             this.mainGroupBox.TabIndex = 2;
             this.mainGroupBox.TabStop = false;
             this.mainGroupBox.Text = "Produkty";
@@ -75,11 +75,11 @@
             this.actionsGroupBox.Controls.Add(this.addButton);
             this.actionsGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.actionsGroupBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.actionsGroupBox.Location = new System.Drawing.Point(551, 45);
+            this.actionsGroupBox.Location = new System.Drawing.Point(552, 16);
             this.actionsGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.actionsGroupBox.Name = "actionsGroupBox";
             this.actionsGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.actionsGroupBox.Size = new System.Drawing.Size(202, 152);
+            this.actionsGroupBox.Size = new System.Drawing.Size(202, 150);
             this.actionsGroupBox.TabIndex = 6;
             this.actionsGroupBox.TabStop = false;
             this.actionsGroupBox.Text = "Akcje";
@@ -129,11 +129,11 @@
             this.searchGroupBox.Controls.Add(this.nameLabel);
             this.searchGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.searchGroupBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.searchGroupBox.Location = new System.Drawing.Point(7, 45);
+            this.searchGroupBox.Location = new System.Drawing.Point(8, 16);
             this.searchGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.searchGroupBox.Name = "searchGroupBox";
             this.searchGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.searchGroupBox.Size = new System.Drawing.Size(537, 152);
+            this.searchGroupBox.Size = new System.Drawing.Size(537, 150);
             this.searchGroupBox.TabIndex = 4;
             this.searchGroupBox.TabStop = false;
             this.searchGroupBox.Text = "Wyszukiwanie";
@@ -240,29 +240,46 @@
             // 
             // itemsListView
             // 
-            this.itemsListView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.itemsListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.itemsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.itemsListView.FullRowSelect = true;
             this.itemsListView.GridLines = true;
-            this.itemsListView.Location = new System.Drawing.Point(4, 206);
+            this.itemsListView.Location = new System.Drawing.Point(0, 208);
             this.itemsListView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.itemsListView.Name = "itemsListView";
-            this.itemsListView.Size = new System.Drawing.Size(764, 501);
+            this.itemsListView.Size = new System.Drawing.Size(758, 144);
             this.itemsListView.TabIndex = 3;
             this.itemsListView.UseCompatibleStateImageBehavior = false;
             this.itemsListView.View = System.Windows.Forms.View.Details;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.searchGroupBox);
+            this.panel1.Controls.Add(this.actionsGroupBox);
+            this.panel1.Location = new System.Drawing.Point(0, 32);
+            this.panel1.MinimumSize = new System.Drawing.Size(766, 172);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(766, 172);
+            this.panel1.TabIndex = 7;
             // 
             // UsersView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.mainGroupBox);
+            this.MinimumSize = new System.Drawing.Size(762, 350);
             this.Name = "UsersView";
-            this.Size = new System.Drawing.Size(772, 710);
+            this.Size = new System.Drawing.Size(762, 350);
+            this.Tag = "Users";
             this.mainGroupBox.ResumeLayout(false);
             this.actionsGroupBox.ResumeLayout(false);
             this.searchGroupBox.ResumeLayout(false);
             this.searchGroupBox.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -287,5 +304,6 @@
         private TextBox nameTextBox;
         private Label nameLabel;
         private ListView itemsListView;
+        private Panel panel1;
     }
 }

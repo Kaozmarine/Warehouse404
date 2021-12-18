@@ -57,7 +57,6 @@
             this.mainGroupBox.Controls.Add(this.searchGroupBox);
             this.mainGroupBox.Controls.Add(this.itemsListView);
             this.mainGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainGroupBox.Enabled = false;
             this.mainGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.mainGroupBox.Location = new System.Drawing.Point(0, 0);
             this.mainGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -86,7 +85,7 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(103, 82);
+            this.deleteButton.Location = new System.Drawing.Point(104, 88);
             this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(88, 52);
@@ -96,7 +95,7 @@
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(8, 82);
+            this.editButton.Location = new System.Drawing.Point(8, 88);
             this.editButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(88, 52);
@@ -259,6 +258,7 @@
             this.Controls.Add(this.mainGroupBox);
             this.Name = "ProductsView";
             this.Size = new System.Drawing.Size(768, 711);
+            this.Tag = "Products";
             this.mainGroupBox.ResumeLayout(false);
             this.actionsGroupBox.ResumeLayout(false);
             this.searchGroupBox.ResumeLayout(false);

@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace Warehouse404.Model
 {
-    internal class Client
+    public class Client
     {
         public int Id { get; set; }
 
         public bool IsCompany { get; set; }
 
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
-        public string EntityNumber { get; set; }
+        public string EntityNumber { get; set; } = string.Empty;
 
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; } = string.Empty;
 
-        public string EmailAddress { get; set; }
+        public string EmailAddress { get; set; } = string.Empty;
 
-        public  Address Address { get; set; }
+        public  Address Address { get; set; } = new Address();
     }
 }

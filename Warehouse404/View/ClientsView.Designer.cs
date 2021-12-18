@@ -57,7 +57,6 @@
             this.mainGroupBox.Controls.Add(this.searchGroupBox);
             this.mainGroupBox.Controls.Add(this.itemsListView);
             this.mainGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainGroupBox.Enabled = false;
             this.mainGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.mainGroupBox.Location = new System.Drawing.Point(0, 0);
             this.mainGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -244,10 +243,10 @@
             this.itemsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.itemsListView.FullRowSelect = true;
             this.itemsListView.GridLines = true;
-            this.itemsListView.Location = new System.Drawing.Point(4, 236);
+            this.itemsListView.Location = new System.Drawing.Point(4, 200);
             this.itemsListView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.itemsListView.Name = "itemsListView";
-            this.itemsListView.Size = new System.Drawing.Size(1021, 501);
+            this.itemsListView.Size = new System.Drawing.Size(1021, 537);
             this.itemsListView.TabIndex = 3;
             this.itemsListView.UseCompatibleStateImageBehavior = false;
             this.itemsListView.View = System.Windows.Forms.View.Details;
@@ -259,6 +258,7 @@
             this.Controls.Add(this.mainGroupBox);
             this.Name = "ClientsView";
             this.Size = new System.Drawing.Size(1029, 740);
+            this.Tag = "Clients";
             this.mainGroupBox.ResumeLayout(false);
             this.actionsGroupBox.ResumeLayout(false);
             this.searchGroupBox.ResumeLayout(false);

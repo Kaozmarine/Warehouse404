@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Warehouse404.Model
 {
-    internal class Product
+    public class Product
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
-        public string Manufacturer { get; set; }
+        public string Manufacturer { get; set; } = string.Empty;
 
-        public string CatalogNumber { get; set; }
+        public string CatalogNumber { get; set; } = string.Empty;
 
-        public string Category { get; set; }
+        public string Category { get; set; }  = string.Empty;
 
         public int Count { get; set; }
 
