@@ -24,5 +24,20 @@ namespace Warehouse404.Common
                     return os.ToString();
             }
         }
+
+        public static string ToFriendlyString(this Role role)
+        {
+            switch (role)
+            {
+                case Role.Owner:
+                    return "Właściciel";
+                case Role.Warehoouse:
+                    return "Magazynier";
+                case Role.Store:
+                    return "Sprzedawca";
+                default:
+                    return role.ToString();
+            }
+        }
     }
 }

@@ -46,15 +46,24 @@
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.itemsListView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.mainGroupBox.SuspendLayout();
             this.actionsGroupBox.SuspendLayout();
             this.searchGroupBox.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainGroupBox
             // 
-            this.mainGroupBox.Controls.Add(this.actionsGroupBox);
-            this.mainGroupBox.Controls.Add(this.searchGroupBox);
+            this.mainGroupBox.Controls.Add(this.panel1);
             this.mainGroupBox.Controls.Add(this.itemsListView);
             this.mainGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -62,7 +71,7 @@
             this.mainGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.mainGroupBox.Name = "mainGroupBox";
             this.mainGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.mainGroupBox.Size = new System.Drawing.Size(768, 711);
+            this.mainGroupBox.Size = new System.Drawing.Size(774, 718);
             this.mainGroupBox.TabIndex = 1;
             this.mainGroupBox.TabStop = false;
             this.mainGroupBox.Text = "Produkty";
@@ -74,7 +83,7 @@
             this.actionsGroupBox.Controls.Add(this.addButton);
             this.actionsGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.actionsGroupBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.actionsGroupBox.Location = new System.Drawing.Point(551, 45);
+            this.actionsGroupBox.Location = new System.Drawing.Point(560, 8);
             this.actionsGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.actionsGroupBox.Name = "actionsGroupBox";
             this.actionsGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -128,7 +137,7 @@
             this.searchGroupBox.Controls.Add(this.nameLabel);
             this.searchGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.searchGroupBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.searchGroupBox.Location = new System.Drawing.Point(7, 45);
+            this.searchGroupBox.Location = new System.Drawing.Point(8, 8);
             this.searchGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.searchGroupBox.Name = "searchGroupBox";
             this.searchGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -175,10 +184,10 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(414, 103);
+            this.button7.Location = new System.Drawing.Point(414, 104);
             this.button7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(115, 39);
+            this.button7.Size = new System.Drawing.Size(115, 38);
             this.button7.TabIndex = 6;
             this.button7.Text = "Szukaj";
             this.button7.UseVisualStyleBackColor = true;
@@ -239,17 +248,78 @@
             // 
             // itemsListView
             // 
-            this.itemsListView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.itemsListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.itemsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8});
             this.itemsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.itemsListView.FullRowSelect = true;
             this.itemsListView.GridLines = true;
-            this.itemsListView.Location = new System.Drawing.Point(4, 207);
+            this.itemsListView.Location = new System.Drawing.Point(4, 214);
             this.itemsListView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.itemsListView.MultiSelect = false;
             this.itemsListView.Name = "itemsListView";
-            this.itemsListView.Size = new System.Drawing.Size(760, 501);
+            this.itemsListView.Size = new System.Drawing.Size(767, 501);
             this.itemsListView.TabIndex = 3;
             this.itemsListView.UseCompatibleStateImageBehavior = false;
             this.itemsListView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Nazwa artykułu";
+            this.columnHeader1.Width = 160;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Producent";
+            this.columnHeader2.Width = 100;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Nr katalogowy";
+            this.columnHeader3.Width = 120;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Kategoria";
+            this.columnHeader4.Width = 90;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Ilość";
+            this.columnHeader5.Width = 70;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Cena";
+            this.columnHeader6.Width = 70;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Regał";
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Półka";
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.searchGroupBox);
+            this.panel1.Controls.Add(this.actionsGroupBox);
+            this.panel1.Location = new System.Drawing.Point(4, 36);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(767, 172);
+            this.panel1.TabIndex = 7;
             // 
             // ProductsView
             // 
@@ -257,12 +327,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.mainGroupBox);
             this.Name = "ProductsView";
-            this.Size = new System.Drawing.Size(768, 711);
+            this.Size = new System.Drawing.Size(774, 718);
             this.Tag = "Products";
             this.mainGroupBox.ResumeLayout(false);
             this.actionsGroupBox.ResumeLayout(false);
             this.searchGroupBox.ResumeLayout(false);
             this.searchGroupBox.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -287,5 +358,14 @@
         private TextBox nameTextBox;
         private Label nameLabel;
         private ListView itemsListView;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
+        private ColumnHeader columnHeader5;
+        private ColumnHeader columnHeader6;
+        private ColumnHeader columnHeader7;
+        private ColumnHeader columnHeader8;
+        private Panel panel1;
     }
 }

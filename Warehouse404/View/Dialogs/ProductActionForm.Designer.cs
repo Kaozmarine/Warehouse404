@@ -1,6 +1,6 @@
 ﻿namespace Warehouse404.View.Dialogs
 {
-    partial class AddProductForm
+    partial class ProductActionForm
     {
         /// <summary>
         /// Required designer variable.

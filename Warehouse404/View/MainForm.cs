@@ -85,6 +85,7 @@ namespace Warehouse404.View
         {
             if (StateManager.CurrentUser is null)
             {
+                // Login
                 var loginDialog = new LoginForm();
                 if (loginDialog.ShowDialog(this) == DialogResult.OK)
                 {
@@ -106,7 +107,8 @@ namespace Warehouse404.View
                 }
             }
             else
-            {                
+            {         
+                // Logout
                 StateManager.CurrentUser = null;
                 MessageBox.Show("Wylogowano poprawnie.",
                             "Status logowania",
@@ -115,6 +117,7 @@ namespace Warehouse404.View
                 menuView.ChangeLoginButtonStatus(false);
             }
             menuView.ConfigureForRole(StateManager.CurrentUser?.Role);
+            splitContainer.Panel2.Controls.Clear();
         }
     }
 }

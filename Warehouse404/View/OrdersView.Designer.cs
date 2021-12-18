@@ -46,15 +46,20 @@
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.itemsListView = new System.Windows.Forms.ListView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.number = new System.Windows.Forms.ColumnHeader();
+            this.date = new System.Windows.Forms.ColumnHeader();
+            this.total = new System.Windows.Forms.ColumnHeader();
+            this.count = new System.Windows.Forms.ColumnHeader();
             this.mainGroupBox.SuspendLayout();
             this.actionsGroupBox.SuspendLayout();
             this.searchGroupBox.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainGroupBox
             // 
-            this.mainGroupBox.Controls.Add(this.actionsGroupBox);
-            this.mainGroupBox.Controls.Add(this.searchGroupBox);
+            this.mainGroupBox.Controls.Add(this.panel1);
             this.mainGroupBox.Controls.Add(this.itemsListView);
             this.mainGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -65,7 +70,7 @@
             this.mainGroupBox.Size = new System.Drawing.Size(966, 779);
             this.mainGroupBox.TabIndex = 2;
             this.mainGroupBox.TabStop = false;
-            this.mainGroupBox.Text = "Produkty";
+            this.mainGroupBox.Text = "Zamówienia";
             // 
             // actionsGroupBox
             // 
@@ -74,7 +79,7 @@
             this.actionsGroupBox.Controls.Add(this.addButton);
             this.actionsGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.actionsGroupBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.actionsGroupBox.Location = new System.Drawing.Point(552, 48);
+            this.actionsGroupBox.Location = new System.Drawing.Point(552, 8);
             this.actionsGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.actionsGroupBox.Name = "actionsGroupBox";
             this.actionsGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -128,7 +133,7 @@
             this.searchGroupBox.Controls.Add(this.nameLabel);
             this.searchGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.searchGroupBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.searchGroupBox.Location = new System.Drawing.Point(7, 45);
+            this.searchGroupBox.Location = new System.Drawing.Point(8, 8);
             this.searchGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.searchGroupBox.Name = "searchGroupBox";
             this.searchGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -239,17 +244,56 @@
             // 
             // itemsListView
             // 
-            this.itemsListView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.itemsListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.itemsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.number,
+            this.date,
+            this.count,
+            this.total});
             this.itemsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.itemsListView.FullRowSelect = true;
             this.itemsListView.GridLines = true;
-            this.itemsListView.Location = new System.Drawing.Point(4, 208);
+            this.itemsListView.Location = new System.Drawing.Point(4, 216);
             this.itemsListView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.itemsListView.MultiSelect = false;
             this.itemsListView.Name = "itemsListView";
-            this.itemsListView.Size = new System.Drawing.Size(958, 568);
+            this.itemsListView.Size = new System.Drawing.Size(958, 560);
             this.itemsListView.TabIndex = 3;
             this.itemsListView.UseCompatibleStateImageBehavior = false;
             this.itemsListView.View = System.Windows.Forms.View.Details;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.searchGroupBox);
+            this.panel1.Controls.Add(this.actionsGroupBox);
+            this.panel1.Location = new System.Drawing.Point(4, 40);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(956, 168);
+            this.panel1.TabIndex = 3;
+            // 
+            // number
+            // 
+            this.number.Text = "Nr zamówienia";
+            this.number.Width = 120;
+            // 
+            // date
+            // 
+            this.date.Text = "Data zamówienia";
+            this.date.Width = 140;
+            // 
+            // total
+            // 
+            this.total.Text = "Wartość";
+            this.total.Width = 120;
+            // 
+            // count
+            // 
+            this.count.Text = "Ilość produktów";
+            this.count.Width = 140;
             // 
             // OrdersView
             // 
@@ -263,6 +307,7 @@
             this.actionsGroupBox.ResumeLayout(false);
             this.searchGroupBox.ResumeLayout(false);
             this.searchGroupBox.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -287,5 +332,10 @@
         private TextBox nameTextBox;
         private Label nameLabel;
         private ListView itemsListView;
+        private Panel panel1;
+        private ColumnHeader number;
+        private ColumnHeader date;
+        private ColumnHeader count;
+        private ColumnHeader total;
     }
 }

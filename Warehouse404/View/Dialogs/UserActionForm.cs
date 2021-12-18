@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Warehouse404.View.Dialogs
 {
-    public partial class EditProductForm : Form
+    public partial class UserActionForm : Form
     {
-        public EditProductForm()
+        public UserActionForm()
         {
             InitializeComponent();
         }

@@ -46,15 +46,26 @@
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.itemsListView = new System.Windows.Forms.ListView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.number = new System.Windows.Forms.ColumnHeader();
+            this.name = new System.Windows.Forms.ColumnHeader();
+            this.entityNumber = new System.Windows.Forms.ColumnHeader();
+            this.phone = new System.Windows.Forms.ColumnHeader();
+            this.email = new System.Windows.Forms.ColumnHeader();
+            this.town = new System.Windows.Forms.ColumnHeader();
+            this.zipCode = new System.Windows.Forms.ColumnHeader();
+            this.street = new System.Windows.Forms.ColumnHeader();
+            this.building = new System.Windows.Forms.ColumnHeader();
+            this.apartment = new System.Windows.Forms.ColumnHeader();
             this.mainGroupBox.SuspendLayout();
             this.actionsGroupBox.SuspendLayout();
             this.searchGroupBox.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainGroupBox
             // 
-            this.mainGroupBox.Controls.Add(this.actionsGroupBox);
-            this.mainGroupBox.Controls.Add(this.searchGroupBox);
+            this.mainGroupBox.Controls.Add(this.panel1);
             this.mainGroupBox.Controls.Add(this.itemsListView);
             this.mainGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -65,7 +76,7 @@
             this.mainGroupBox.Size = new System.Drawing.Size(1029, 740);
             this.mainGroupBox.TabIndex = 2;
             this.mainGroupBox.TabStop = false;
-            this.mainGroupBox.Text = "Produkty";
+            this.mainGroupBox.Text = "Klienci";
             // 
             // actionsGroupBox
             // 
@@ -74,7 +85,7 @@
             this.actionsGroupBox.Controls.Add(this.addButton);
             this.actionsGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.actionsGroupBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.actionsGroupBox.Location = new System.Drawing.Point(551, 45);
+            this.actionsGroupBox.Location = new System.Drawing.Point(552, 8);
             this.actionsGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.actionsGroupBox.Name = "actionsGroupBox";
             this.actionsGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -128,7 +139,7 @@
             this.searchGroupBox.Controls.Add(this.nameLabel);
             this.searchGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.searchGroupBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.searchGroupBox.Location = new System.Drawing.Point(7, 45);
+            this.searchGroupBox.Location = new System.Drawing.Point(8, 8);
             this.searchGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.searchGroupBox.Name = "searchGroupBox";
             this.searchGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -239,17 +250,92 @@
             // 
             // itemsListView
             // 
-            this.itemsListView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.itemsListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.itemsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.number,
+            this.name,
+            this.entityNumber,
+            this.phone,
+            this.email,
+            this.town,
+            this.zipCode,
+            this.street,
+            this.building,
+            this.apartment});
             this.itemsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.itemsListView.FullRowSelect = true;
             this.itemsListView.GridLines = true;
-            this.itemsListView.Location = new System.Drawing.Point(4, 200);
+            this.itemsListView.Location = new System.Drawing.Point(4, 208);
             this.itemsListView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.itemsListView.MultiSelect = false;
             this.itemsListView.Name = "itemsListView";
-            this.itemsListView.Size = new System.Drawing.Size(1021, 537);
+            this.itemsListView.Size = new System.Drawing.Size(1021, 529);
             this.itemsListView.TabIndex = 3;
             this.itemsListView.UseCompatibleStateImageBehavior = false;
             this.itemsListView.View = System.Windows.Forms.View.Details;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.searchGroupBox);
+            this.panel1.Controls.Add(this.actionsGroupBox);
+            this.panel1.Location = new System.Drawing.Point(4, 36);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1012, 164);
+            this.panel1.TabIndex = 7;
+            // 
+            // number
+            // 
+            this.number.Text = "Nr klienta";
+            this.number.Width = 90;
+            // 
+            // name
+            // 
+            this.name.Text = "Nazwa";
+            this.name.Width = 180;
+            // 
+            // entityNumber
+            // 
+            this.entityNumber.Text = "NIP/PESEL";
+            this.entityNumber.Width = 120;
+            // 
+            // phone
+            // 
+            this.phone.Text = "Telefon";
+            this.phone.Width = 130;
+            // 
+            // email
+            // 
+            this.email.Text = "Email";
+            this.email.Width = 140;
+            // 
+            // town
+            // 
+            this.town.Text = "Miejscowość";
+            this.town.Width = 150;
+            // 
+            // zipCode
+            // 
+            this.zipCode.Text = "Kod pocztowy";
+            this.zipCode.Width = 120;
+            // 
+            // street
+            // 
+            this.street.Text = "Ulica";
+            this.street.Width = 120;
+            // 
+            // building
+            // 
+            this.building.Text = "Budynek";
+            this.building.Width = 6080;
+            // 
+            // apartment
+            // 
+            this.apartment.Text = "Lokal";
+            this.apartment.Width = 80;
             // 
             // ClientsView
             // 
@@ -263,6 +349,7 @@
             this.actionsGroupBox.ResumeLayout(false);
             this.searchGroupBox.ResumeLayout(false);
             this.searchGroupBox.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -287,5 +374,16 @@
         private TextBox nameTextBox;
         private Label nameLabel;
         private ListView itemsListView;
+        private Panel panel1;
+        private ColumnHeader number;
+        private ColumnHeader name;
+        private ColumnHeader entityNumber;
+        private ColumnHeader phone;
+        private ColumnHeader email;
+        private ColumnHeader town;
+        private ColumnHeader zipCode;
+        private ColumnHeader street;
+        private ColumnHeader building;
+        private ColumnHeader apartment;
     }
 }
