@@ -102,7 +102,9 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Logowanie";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 

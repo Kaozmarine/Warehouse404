@@ -91,7 +91,7 @@ namespace Warehouse404.View
                 {
                     if (databaseMapper.Login(loginDialog.Login, loginDialog.Password))
                     {                        
-                        MessageBox.Show($"Zalogowano poprawnie.\nWitaj {StateManager.CurrentUser?.Name}!", 
+                        MessageBox.Show(this, $"Zalogowano poprawnie.\nWitaj {StateManager.CurrentUser?.Name}!", 
                             "Status logowania", 
                             MessageBoxButtons.OK, 
                             MessageBoxIcon.Information);
@@ -99,7 +99,7 @@ namespace Warehouse404.View
                     }
                     else
                     {
-                        MessageBox.Show($"Logowanie nie udało się!.\nSprawdź czy wpisujesz poprawne dane!", 
+                        MessageBox.Show(this, $"Logowanie nie udało się!.\nSprawdź czy wpisujesz poprawne dane!", 
                             "Status logowania", 
                             MessageBoxButtons.OK, 
                             MessageBoxIcon.Error);
@@ -110,7 +110,7 @@ namespace Warehouse404.View
             {         
                 // Logout
                 StateManager.CurrentUser = null;
-                MessageBox.Show("Wylogowano poprawnie.",
+                MessageBox.Show(this, "Wylogowano poprawnie.",
                             "Status logowania",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
