@@ -35,7 +35,7 @@
             this.countToTextBox = new System.Windows.Forms.TextBox();
             this.countFromTextBox = new System.Windows.Forms.TextBox();
             this.countFromLabel = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
+            this.searchButton = new System.Windows.Forms.Button();
             this.priceToLabel = new System.Windows.Forms.Label();
             this.priceToTextBox = new System.Windows.Forms.TextBox();
             this.priceFromTextBox = new System.Windows.Forms.TextBox();
@@ -55,6 +55,7 @@
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
+            this.resetFilterButton = new System.Windows.Forms.Button();
             this.mainGroupBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.searchGroupBox.SuspendLayout();
@@ -89,11 +90,12 @@
             // 
             // searchGroupBox
             // 
+            this.searchGroupBox.Controls.Add(this.resetFilterButton);
             this.searchGroupBox.Controls.Add(this.countToLabel);
             this.searchGroupBox.Controls.Add(this.countToTextBox);
             this.searchGroupBox.Controls.Add(this.countFromTextBox);
             this.searchGroupBox.Controls.Add(this.countFromLabel);
-            this.searchGroupBox.Controls.Add(this.button7);
+            this.searchGroupBox.Controls.Add(this.searchButton);
             this.searchGroupBox.Controls.Add(this.priceToLabel);
             this.searchGroupBox.Controls.Add(this.priceToTextBox);
             this.searchGroupBox.Controls.Add(this.priceFromTextBox);
@@ -147,15 +149,16 @@
             this.countFromLabel.TabIndex = 7;
             this.countFromLabel.Text = "Ilosć od";
             // 
-            // button7
+            // searchButton
             // 
-            this.button7.Location = new System.Drawing.Point(414, 104);
-            this.button7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(115, 38);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "Szukaj";
-            this.button7.UseVisualStyleBackColor = true;
+            this.searchButton.Location = new System.Drawing.Point(414, 104);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(115, 38);
+            this.searchButton.TabIndex = 6;
+            this.searchButton.Text = "Szukaj";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // priceToLabel
             // 
@@ -236,7 +239,7 @@
             this.deleteButton.TabIndex = 2;
             this.deleteButton.Text = "Usuń";
             this.deleteButton.UseVisualStyleBackColor = true;
-            this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // editButton
             // 
@@ -247,7 +250,7 @@
             this.editButton.TabIndex = 1;
             this.editButton.Text = "Edytuj";
             this.editButton.UseVisualStyleBackColor = true;
-            this.editButton.Click += new System.EventHandler(this.EditButton_Click);
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // addButton
             // 
@@ -324,6 +327,17 @@
             // 
             this.columnHeader8.Text = "Półka";
             // 
+            // resetFilterButton
+            // 
+            this.resetFilterButton.Location = new System.Drawing.Point(414, 21);
+            this.resetFilterButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.resetFilterButton.Name = "resetFilterButton";
+            this.resetFilterButton.Size = new System.Drawing.Size(115, 38);
+            this.resetFilterButton.TabIndex = 11;
+            this.resetFilterButton.Text = "Wyczyść filtry";
+            this.resetFilterButton.UseVisualStyleBackColor = true;
+            this.resetFilterButton.Click += new System.EventHandler(this.resetFilterButton_Click);
+            // 
             // ProductsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -353,7 +367,7 @@
         private TextBox countToTextBox;
         private TextBox countFromTextBox;
         private Label countFromLabel;
-        private Button button7;
+        private Button searchButton;
         private Label priceToLabel;
         private TextBox priceToTextBox;
         private TextBox priceFromTextBox;
@@ -370,5 +384,6 @@
         private ColumnHeader columnHeader7;
         private ColumnHeader columnHeader8;
         private Panel panel1;
+        private Button resetFilterButton;
     }
 }

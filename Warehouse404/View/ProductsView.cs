@@ -99,5 +99,15 @@ namespace Warehouse404.View
                 databaseMapper.DeleteProduct(product.Id);
             }
         }
+
+        private void ResetFilterButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

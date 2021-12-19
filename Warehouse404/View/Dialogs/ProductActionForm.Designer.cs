@@ -34,6 +34,10 @@
             this.rackTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.catalogNumberTextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.categoryTextBox = new System.Windows.Forms.TextBox();
+            this.categoryLabel = new System.Windows.Forms.Label();
             this.countTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.priceTextBox = new System.Windows.Forms.TextBox();
@@ -42,10 +46,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
-            this.categoryTextBox = new System.Windows.Forms.TextBox();
-            this.categoryLabel = new System.Windows.Forms.Label();
-            this.catalogNumberTextBox = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +75,7 @@
             this.shelfTextBox.Name = "shelfTextBox";
             this.shelfTextBox.Size = new System.Drawing.Size(187, 22);
             this.shelfTextBox.TabIndex = 3;
+            this.shelfTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.shelfTextBox_KeyPress);
             // 
             // label5
             // 
@@ -95,6 +96,7 @@
             this.rackTextBox.Name = "rackTextBox";
             this.rackTextBox.Size = new System.Drawing.Size(187, 22);
             this.rackTextBox.TabIndex = 1;
+            this.rackTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rackTextBox_KeyPress);
             // 
             // label6
             // 
@@ -129,6 +131,42 @@
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             // 
+            // catalogNumberTextBox
+            // 
+            this.catalogNumberTextBox.Location = new System.Drawing.Point(130, 179);
+            this.catalogNumberTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.catalogNumberTextBox.Name = "catalogNumberTextBox";
+            this.catalogNumberTextBox.Size = new System.Drawing.Size(187, 22);
+            this.catalogNumberTextBox.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(13, 182);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(106, 16);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Nr katalogowy";
+            // 
+            // categoryTextBox
+            // 
+            this.categoryTextBox.Location = new System.Drawing.Point(130, 142);
+            this.categoryTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.categoryTextBox.Name = "categoryTextBox";
+            this.categoryTextBox.Size = new System.Drawing.Size(187, 22);
+            this.categoryTextBox.TabIndex = 10;
+            // 
+            // categoryLabel
+            // 
+            this.categoryLabel.AutoSize = true;
+            this.categoryLabel.Location = new System.Drawing.Point(13, 145);
+            this.categoryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.categoryLabel.Name = "categoryLabel";
+            this.categoryLabel.Size = new System.Drawing.Size(74, 16);
+            this.categoryLabel.TabIndex = 9;
+            this.categoryLabel.Text = "Kategoria";
+            // 
             // countTextBox
             // 
             this.countTextBox.Location = new System.Drawing.Point(130, 105);
@@ -136,6 +174,7 @@
             this.countTextBox.Name = "countTextBox";
             this.countTextBox.Size = new System.Drawing.Size(187, 22);
             this.countTextBox.TabIndex = 8;
+            this.countTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.countTextBox_KeyPress);
             // 
             // label4
             // 
@@ -154,6 +193,7 @@
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(187, 22);
             this.priceTextBox.TabIndex = 3;
+            this.priceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceTextBox_KeyPress);
             // 
             // label2
             // 
@@ -206,42 +246,6 @@
             this.addButton.TabIndex = 10;
             this.addButton.Text = "Dodaj";
             this.addButton.UseVisualStyleBackColor = true;
-            // 
-            // categoryTextBox
-            // 
-            this.categoryTextBox.Location = new System.Drawing.Point(130, 142);
-            this.categoryTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.categoryTextBox.Name = "categoryTextBox";
-            this.categoryTextBox.Size = new System.Drawing.Size(187, 22);
-            this.categoryTextBox.TabIndex = 10;
-            // 
-            // categoryLabel
-            // 
-            this.categoryLabel.AutoSize = true;
-            this.categoryLabel.Location = new System.Drawing.Point(13, 145);
-            this.categoryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.categoryLabel.Name = "categoryLabel";
-            this.categoryLabel.Size = new System.Drawing.Size(74, 16);
-            this.categoryLabel.TabIndex = 9;
-            this.categoryLabel.Text = "Kategoria";
-            // 
-            // catalogNumberTextBox
-            // 
-            this.catalogNumberTextBox.Location = new System.Drawing.Point(130, 179);
-            this.catalogNumberTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.catalogNumberTextBox.Name = "catalogNumberTextBox";
-            this.catalogNumberTextBox.Size = new System.Drawing.Size(187, 22);
-            this.catalogNumberTextBox.TabIndex = 12;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 182);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(106, 16);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Nr katalogowy";
             // 
             // ProductActionForm
             // 
