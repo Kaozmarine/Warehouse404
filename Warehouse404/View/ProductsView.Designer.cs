@@ -239,7 +239,7 @@
             this.deleteButton.TabIndex = 2;
             this.deleteButton.Text = "Usuń";
             this.deleteButton.UseVisualStyleBackColor = true;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // editButton
             // 
@@ -250,7 +250,7 @@
             this.editButton.TabIndex = 1;
             this.editButton.Text = "Edytuj";
             this.editButton.UseVisualStyleBackColor = true;
-            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            this.editButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // addButton
             // 
@@ -261,7 +261,7 @@
             this.addButton.TabIndex = 0;
             this.addButton.Text = "Dodaj";
             this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // itemsListView
             // 
@@ -336,7 +336,7 @@
             this.resetFilterButton.TabIndex = 11;
             this.resetFilterButton.Text = "Wyczyść filtry";
             this.resetFilterButton.UseVisualStyleBackColor = true;
-            this.resetFilterButton.Click += new System.EventHandler(this.resetFilterButton_Click);
+            this.resetFilterButton.Click += new System.EventHandler(this.ResetFilterButton_Click);
             // 
             // ProductsView
             // 

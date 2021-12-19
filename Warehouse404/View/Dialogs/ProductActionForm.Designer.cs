@@ -75,7 +75,7 @@
             this.shelfTextBox.Name = "shelfTextBox";
             this.shelfTextBox.Size = new System.Drawing.Size(187, 22);
             this.shelfTextBox.TabIndex = 3;
-            this.shelfTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.shelfTextBox_KeyPress);
+            this.shelfTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ShelfTextBox_KeyPress);
             // 
             // label5
             // 
@@ -96,7 +96,7 @@
             this.rackTextBox.Name = "rackTextBox";
             this.rackTextBox.Size = new System.Drawing.Size(187, 22);
             this.rackTextBox.TabIndex = 1;
-            this.rackTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rackTextBox_KeyPress);
+            this.rackTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RackTextBox_KeyPress);
             // 
             // label6
             // 
@@ -174,7 +174,7 @@
             this.countTextBox.Name = "countTextBox";
             this.countTextBox.Size = new System.Drawing.Size(187, 22);
             this.countTextBox.TabIndex = 8;
-            this.countTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.countTextBox_KeyPress);
+            this.countTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CountTextBox_KeyPress);
             // 
             // label4
             // 
@@ -193,7 +193,7 @@
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(187, 22);
             this.priceTextBox.TabIndex = 3;
-            this.priceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceTextBox_KeyPress);
+            this.priceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PriceTextBox_KeyPress);
             // 
             // label2
             // 

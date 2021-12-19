@@ -142,7 +142,7 @@
             this.entityNumberTextBox.Name = "entityNumberTextBox";
             this.entityNumberTextBox.Size = new System.Drawing.Size(187, 22);
             this.entityNumberTextBox.TabIndex = 3;
-            this.entityNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.entityNumberTextBox_KeyPress);
+            this.entityNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EntityNumberTextBox_KeyPress);
             // 
             // label2
             // 
@@ -161,7 +161,6 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(187, 22);
             this.nameTextBox.TabIndex = 1;
-            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // label1
             // 
@@ -182,7 +181,7 @@
             this.postalCodeTextBox.Name = "postalCodeTextBox";
             this.postalCodeTextBox.Size = new System.Drawing.Size(64, 22);
             this.postalCodeTextBox.TabIndex = 3;
-            this.postalCodeTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.postalCodeTextBox_KeyPress);
+            this.postalCodeTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PostalCodeTextBox_KeyPress);
             // 
             // label5
             // 
