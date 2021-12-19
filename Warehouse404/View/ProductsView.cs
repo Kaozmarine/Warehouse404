@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Warehouse404.Common;
 using Warehouse404.Model;
 using Warehouse404.Persistence;
+using Warehouse404.View.Dialogs;
 
 namespace Warehouse404.View
 {
@@ -60,6 +61,43 @@ namespace Warehouse404.View
 
             itemsListView.Items.AddRange(items.ToArray());
             Helpers.AutoSizeColumnList(itemsListView);
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            var actionDialog = new ProductActionForm(ActionType.Add);
+            if (actionDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                databaseMapper.AddProduct(actionDialog.Product);
+            }
+        }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            var productId = (int)itemsListView.SelectedItems[0].Tag;
+            var product = products.First(p => p.Id == productId);
+
+            var actionDialog = new ProductActionForm(ActionType.Edit, product);
+            if (actionDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                databaseMapper.UpdateProduct(actionDialog.Product);
+            }
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            var productId = (int)itemsListView.SelectedItems[0].Tag;
+            var product = products.First(p => p.Id == productId);
+
+            var dialogResult = MessageBox.Show(this, "Czy na pewno chcesz usunąć ten produkt?",
+                            "Usuwanie produktu",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question);
+            
+            if (dialogResult == DialogResult.Yes)
+            {
+                databaseMapper.DeleteProduct(product.Id);
+            }
         }
     }
 }

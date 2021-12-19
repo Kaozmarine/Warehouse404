@@ -39,5 +39,18 @@ namespace Warehouse404.Common
                     return role.ToString();
             }
         }
+
+        public static string ToFriendlyString(this ActionType action)
+        {
+            switch (action)
+            {
+                case ActionType.Add:
+                    return "Dodaj";
+                case ActionType.Edit:
+                    return "Edytuj";
+                default:
+                    return action.ToString();
+            }
+        }
     }
 }

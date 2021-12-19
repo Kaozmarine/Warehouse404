@@ -137,6 +137,21 @@ namespace Warehouse404.Persistence
             return orders;
         }
 
+        internal bool DeleteProduct(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal bool UpdateProduct(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal bool AddProduct(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Product> GetProducts()
         {
             var products = new List<Product>();

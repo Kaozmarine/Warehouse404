@@ -29,10 +29,7 @@
         private void InitializeComponent()
         {
             this.mainGroupBox = new System.Windows.Forms.GroupBox();
-            this.actionsGroupBox = new System.Windows.Forms.GroupBox();
-            this.deleteButton = new System.Windows.Forms.Button();
-            this.editButton = new System.Windows.Forms.Button();
-            this.addButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.searchGroupBox = new System.Windows.Forms.GroupBox();
             this.countToLabel = new System.Windows.Forms.Label();
             this.countToTextBox = new System.Windows.Forms.TextBox();
@@ -45,6 +42,10 @@
             this.priceFromLabel = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
+            this.actionsGroupBox = new System.Windows.Forms.GroupBox();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
             this.itemsListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
@@ -54,11 +55,10 @@
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.mainGroupBox.SuspendLayout();
-            this.actionsGroupBox.SuspendLayout();
-            this.searchGroupBox.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.searchGroupBox.SuspendLayout();
+            this.actionsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainGroupBox
@@ -76,51 +76,16 @@
             this.mainGroupBox.TabStop = false;
             this.mainGroupBox.Text = "Produkty";
             // 
-            // actionsGroupBox
+            // panel1
             // 
-            this.actionsGroupBox.Controls.Add(this.deleteButton);
-            this.actionsGroupBox.Controls.Add(this.editButton);
-            this.actionsGroupBox.Controls.Add(this.addButton);
-            this.actionsGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.actionsGroupBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.actionsGroupBox.Location = new System.Drawing.Point(560, 8);
-            this.actionsGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.actionsGroupBox.Name = "actionsGroupBox";
-            this.actionsGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.actionsGroupBox.Size = new System.Drawing.Size(202, 152);
-            this.actionsGroupBox.TabIndex = 6;
-            this.actionsGroupBox.TabStop = false;
-            this.actionsGroupBox.Text = "Akcje";
-            // 
-            // deleteButton
-            // 
-            this.deleteButton.Location = new System.Drawing.Point(104, 88);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(88, 52);
-            this.deleteButton.TabIndex = 2;
-            this.deleteButton.Text = "Usuń";
-            this.deleteButton.UseVisualStyleBackColor = true;
-            // 
-            // editButton
-            // 
-            this.editButton.Location = new System.Drawing.Point(8, 88);
-            this.editButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(88, 52);
-            this.editButton.TabIndex = 1;
-            this.editButton.Text = "Edytuj";
-            this.editButton.UseVisualStyleBackColor = true;
-            // 
-            // addButton
-            // 
-            this.addButton.Location = new System.Drawing.Point(8, 25);
-            this.addButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(88, 52);
-            this.addButton.TabIndex = 0;
-            this.addButton.Text = "Dodaj";
-            this.addButton.UseVisualStyleBackColor = true;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.searchGroupBox);
+            this.panel1.Controls.Add(this.actionsGroupBox);
+            this.panel1.Location = new System.Drawing.Point(4, 36);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(767, 172);
+            this.panel1.TabIndex = 7;
             // 
             // searchGroupBox
             // 
@@ -246,6 +211,55 @@
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Nazwa";
             // 
+            // actionsGroupBox
+            // 
+            this.actionsGroupBox.Controls.Add(this.deleteButton);
+            this.actionsGroupBox.Controls.Add(this.editButton);
+            this.actionsGroupBox.Controls.Add(this.addButton);
+            this.actionsGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.actionsGroupBox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.actionsGroupBox.Location = new System.Drawing.Point(560, 8);
+            this.actionsGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.actionsGroupBox.Name = "actionsGroupBox";
+            this.actionsGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.actionsGroupBox.Size = new System.Drawing.Size(202, 152);
+            this.actionsGroupBox.TabIndex = 6;
+            this.actionsGroupBox.TabStop = false;
+            this.actionsGroupBox.Text = "Akcje";
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(104, 88);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(88, 52);
+            this.deleteButton.TabIndex = 2;
+            this.deleteButton.Text = "Usuń";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
+            // editButton
+            // 
+            this.editButton.Location = new System.Drawing.Point(8, 88);
+            this.editButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(88, 52);
+            this.editButton.TabIndex = 1;
+            this.editButton.Text = "Edytuj";
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.EditButton_Click);
+            // 
+            // addButton
+            // 
+            this.addButton.Location = new System.Drawing.Point(8, 25);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(88, 52);
+            this.addButton.TabIndex = 0;
+            this.addButton.Text = "Dodaj";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
             // itemsListView
             // 
             this.itemsListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -310,17 +324,6 @@
             // 
             this.columnHeader8.Text = "Półka";
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.searchGroupBox);
-            this.panel1.Controls.Add(this.actionsGroupBox);
-            this.panel1.Location = new System.Drawing.Point(4, 36);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(767, 172);
-            this.panel1.TabIndex = 7;
-            // 
             // ProductsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -330,10 +333,10 @@
             this.Size = new System.Drawing.Size(774, 718);
             this.Tag = "Products";
             this.mainGroupBox.ResumeLayout(false);
-            this.actionsGroupBox.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.searchGroupBox.ResumeLayout(false);
             this.searchGroupBox.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.actionsGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

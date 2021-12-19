@@ -16,5 +16,28 @@ namespace Warehouse404.View.Dialogs
         {
             InitializeComponent();
         }
+
+        private void PostalCodeTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                   (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '-') && (((TextBox)sender).Text.IndexOf('-') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void entityNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
