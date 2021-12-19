@@ -29,11 +29,9 @@
         private void InitializeComponent()
         {
             this.mainGroupBox = new System.Windows.Forms.GroupBox();
-            this.actionsGroupBox = new System.Windows.Forms.GroupBox();
-            this.deleteButton = new System.Windows.Forms.Button();
-            this.editButton = new System.Windows.Forms.Button();
-            this.addButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.searchGroupBox = new System.Windows.Forms.GroupBox();
+            this.resetFilterButton = new System.Windows.Forms.Button();
             this.countToLabel = new System.Windows.Forms.Label();
             this.countToTextBox = new System.Windows.Forms.TextBox();
             this.countFromTextBox = new System.Windows.Forms.TextBox();
@@ -45,16 +43,19 @@
             this.priceFromLabel = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
+            this.actionsGroupBox = new System.Windows.Forms.GroupBox();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
             this.itemsListView = new System.Windows.Forms.ListView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.number = new System.Windows.Forms.ColumnHeader();
             this.date = new System.Windows.Forms.ColumnHeader();
-            this.total = new System.Windows.Forms.ColumnHeader();
             this.count = new System.Windows.Forms.ColumnHeader();
+            this.total = new System.Windows.Forms.ColumnHeader();
             this.mainGroupBox.SuspendLayout();
-            this.actionsGroupBox.SuspendLayout();
-            this.searchGroupBox.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.searchGroupBox.SuspendLayout();
+            this.actionsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainGroupBox
@@ -72,54 +73,20 @@
             this.mainGroupBox.TabStop = false;
             this.mainGroupBox.Text = "Zamówienia";
             // 
-            // actionsGroupBox
+            // panel1
             // 
-            this.actionsGroupBox.Controls.Add(this.deleteButton);
-            this.actionsGroupBox.Controls.Add(this.editButton);
-            this.actionsGroupBox.Controls.Add(this.addButton);
-            this.actionsGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.actionsGroupBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.actionsGroupBox.Location = new System.Drawing.Point(552, 8);
-            this.actionsGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.actionsGroupBox.Name = "actionsGroupBox";
-            this.actionsGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.actionsGroupBox.Size = new System.Drawing.Size(202, 152);
-            this.actionsGroupBox.TabIndex = 6;
-            this.actionsGroupBox.TabStop = false;
-            this.actionsGroupBox.Text = "Akcje";
-            // 
-            // deleteButton
-            // 
-            this.deleteButton.Location = new System.Drawing.Point(104, 88);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(88, 52);
-            this.deleteButton.TabIndex = 2;
-            this.deleteButton.Text = "Usuń";
-            this.deleteButton.UseVisualStyleBackColor = true;
-            // 
-            // editButton
-            // 
-            this.editButton.Location = new System.Drawing.Point(8, 88);
-            this.editButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(88, 52);
-            this.editButton.TabIndex = 1;
-            this.editButton.Text = "Edytuj";
-            this.editButton.UseVisualStyleBackColor = true;
-            // 
-            // addButton
-            // 
-            this.addButton.Location = new System.Drawing.Point(8, 25);
-            this.addButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(88, 52);
-            this.addButton.TabIndex = 0;
-            this.addButton.Text = "Dodaj";
-            this.addButton.UseVisualStyleBackColor = true;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.searchGroupBox);
+            this.panel1.Controls.Add(this.actionsGroupBox);
+            this.panel1.Location = new System.Drawing.Point(4, 40);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(956, 168);
+            this.panel1.TabIndex = 3;
             // 
             // searchGroupBox
             // 
+            this.searchGroupBox.Controls.Add(this.resetFilterButton);
             this.searchGroupBox.Controls.Add(this.countToLabel);
             this.searchGroupBox.Controls.Add(this.countToTextBox);
             this.searchGroupBox.Controls.Add(this.countFromTextBox);
@@ -141,6 +108,17 @@
             this.searchGroupBox.TabIndex = 4;
             this.searchGroupBox.TabStop = false;
             this.searchGroupBox.Text = "Wyszukiwanie";
+            // 
+            // resetFilterButton
+            // 
+            this.resetFilterButton.Location = new System.Drawing.Point(416, 24);
+            this.resetFilterButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.resetFilterButton.Name = "resetFilterButton";
+            this.resetFilterButton.Size = new System.Drawing.Size(115, 38);
+            this.resetFilterButton.TabIndex = 12;
+            this.resetFilterButton.Text = "Wyczyść filtry";
+            this.resetFilterButton.UseVisualStyleBackColor = true;
+            this.resetFilterButton.Click += new System.EventHandler(this.ResetFilterButton_Click);
             // 
             // countToLabel
             // 
@@ -187,6 +165,7 @@
             this.button7.TabIndex = 6;
             this.button7.Text = "Szukaj";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // priceToLabel
             // 
@@ -242,6 +221,55 @@
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Nazwa";
             // 
+            // actionsGroupBox
+            // 
+            this.actionsGroupBox.Controls.Add(this.deleteButton);
+            this.actionsGroupBox.Controls.Add(this.editButton);
+            this.actionsGroupBox.Controls.Add(this.addButton);
+            this.actionsGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.actionsGroupBox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.actionsGroupBox.Location = new System.Drawing.Point(552, 8);
+            this.actionsGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.actionsGroupBox.Name = "actionsGroupBox";
+            this.actionsGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.actionsGroupBox.Size = new System.Drawing.Size(202, 152);
+            this.actionsGroupBox.TabIndex = 6;
+            this.actionsGroupBox.TabStop = false;
+            this.actionsGroupBox.Text = "Akcje";
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(104, 88);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(88, 52);
+            this.deleteButton.TabIndex = 2;
+            this.deleteButton.Text = "Usuń";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
+            // editButton
+            // 
+            this.editButton.Location = new System.Drawing.Point(8, 88);
+            this.editButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(88, 52);
+            this.editButton.TabIndex = 1;
+            this.editButton.Text = "Edytuj";
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.EditButton_Click);
+            // 
+            // addButton
+            // 
+            this.addButton.Location = new System.Drawing.Point(8, 25);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(88, 52);
+            this.addButton.TabIndex = 0;
+            this.addButton.Text = "Dodaj";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
             // itemsListView
             // 
             this.itemsListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -264,17 +292,6 @@
             this.itemsListView.UseCompatibleStateImageBehavior = false;
             this.itemsListView.View = System.Windows.Forms.View.Details;
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.searchGroupBox);
-            this.panel1.Controls.Add(this.actionsGroupBox);
-            this.panel1.Location = new System.Drawing.Point(4, 40);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(956, 168);
-            this.panel1.TabIndex = 3;
-            // 
             // number
             // 
             this.number.Text = "Nr zamówienia";
@@ -285,15 +302,15 @@
             this.date.Text = "Data zamówienia";
             this.date.Width = 140;
             // 
-            // total
-            // 
-            this.total.Text = "Wartość";
-            this.total.Width = 120;
-            // 
             // count
             // 
             this.count.Text = "Ilość produktów";
             this.count.Width = 140;
+            // 
+            // total
+            // 
+            this.total.Text = "Wartość";
+            this.total.Width = 120;
             // 
             // OrdersView
             // 
@@ -304,10 +321,10 @@
             this.Size = new System.Drawing.Size(966, 779);
             this.Tag = "Orders";
             this.mainGroupBox.ResumeLayout(false);
-            this.actionsGroupBox.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.searchGroupBox.ResumeLayout(false);
             this.searchGroupBox.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.actionsGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -337,5 +354,6 @@
         private ColumnHeader date;
         private ColumnHeader count;
         private ColumnHeader total;
+        private Button resetFilterButton;
     }
 }

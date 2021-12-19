@@ -31,6 +31,7 @@ namespace Warehouse404.View
 
         public void FillListView()
         {
+            itemsListView.Items.Clear();
             RedownloadList();
             AddItemsToList();
         }
@@ -74,6 +75,10 @@ namespace Warehouse404.View
 
         private void EditButton_Click(object sender, EventArgs e)
         {
+            if (itemsListView.SelectedItems.Count < 1)
+            {
+                return;
+            }
             var productId = (int)itemsListView.SelectedItems[0].Tag;
             var product = products.First(p => p.Id == productId);
 
@@ -86,6 +91,10 @@ namespace Warehouse404.View
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
+            if (itemsListView.SelectedItems.Count < 1)
+            {
+                return;
+            }
             var productId = (int)itemsListView.SelectedItems[0].Tag;
             var product = products.First(p => p.Id == productId);
 

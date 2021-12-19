@@ -50,6 +50,7 @@
             this.loginColumn = new System.Windows.Forms.ColumnHeader();
             this.nameColumn = new System.Windows.Forms.ColumnHeader();
             this.roleColumn = new System.Windows.Forms.ColumnHeader();
+            this.resetFilterButton = new System.Windows.Forms.Button();
             this.mainGroupBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.searchGroupBox.SuspendLayout();
@@ -85,6 +86,7 @@
             // 
             // searchGroupBox
             // 
+            this.searchGroupBox.Controls.Add(this.resetFilterButton);
             this.searchGroupBox.Controls.Add(this.countToLabel);
             this.searchGroupBox.Controls.Add(this.countToTextBox);
             this.searchGroupBox.Controls.Add(this.countFromTextBox);
@@ -145,13 +147,14 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(414, 103);
+            this.button7.Location = new System.Drawing.Point(416, 104);
             this.button7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(115, 39);
             this.button7.TabIndex = 6;
             this.button7.Text = "Szukaj";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // priceToLabel
             // 
@@ -232,6 +235,7 @@
             this.deleteButton.TabIndex = 2;
             this.deleteButton.Text = "Usuń";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // editButton
             // 
@@ -242,6 +246,7 @@
             this.editButton.TabIndex = 1;
             this.editButton.Text = "Edytuj";
             this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // addButton
             // 
@@ -252,6 +257,7 @@
             this.addButton.TabIndex = 0;
             this.addButton.Text = "Dodaj";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // itemsListView
             // 
@@ -288,6 +294,17 @@
             // 
             this.roleColumn.Text = "Rola";
             this.roleColumn.Width = 120;
+            // 
+            // resetFilterButton
+            // 
+            this.resetFilterButton.Location = new System.Drawing.Point(416, 16);
+            this.resetFilterButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.resetFilterButton.Name = "resetFilterButton";
+            this.resetFilterButton.Size = new System.Drawing.Size(115, 38);
+            this.resetFilterButton.TabIndex = 12;
+            this.resetFilterButton.Text = "Wyczyść filtry";
+            this.resetFilterButton.UseVisualStyleBackColor = true;
+            this.resetFilterButton.Click += new System.EventHandler(this.ResetFilterButton_Click);
             // 
             // UsersView
             // 
@@ -331,5 +348,6 @@
         private ColumnHeader loginColumn;
         private ColumnHeader nameColumn;
         private ColumnHeader roleColumn;
+        private Button resetFilterButton;
     }
 }

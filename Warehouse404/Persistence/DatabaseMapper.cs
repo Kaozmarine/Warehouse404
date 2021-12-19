@@ -33,7 +33,8 @@ namespace Warehouse404.Persistence
                     id_users AS Id,
                     users_name AS Name,
                     users_role AS Role,
-                    users_login AS Login
+                    users_login AS Login,
+                    users_password AS Password
                     FROM users 
                     WHERE users_login=@db_login AND users_password=@db_password
                     LIMIT 1";
@@ -68,6 +69,11 @@ namespace Warehouse404.Persistence
             }
 
             return users;
+        }
+
+        internal void AddOrder(Order order)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Order> GetOrders()
@@ -137,17 +143,56 @@ namespace Warehouse404.Persistence
             return orders;
         }
 
-        internal bool DeleteProduct(int id)
+        internal void DeleteOrder(int id)
         {
             throw new NotImplementedException();
         }
 
-        internal bool UpdateProduct(Product product)
+        internal void UpdateOrder(Order order)
         {
             throw new NotImplementedException();
         }
 
-        internal bool AddProduct(Product product)
+        public void DeleteUser(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateUser(User user)
+        {
+            throw new NotImplementedException();
+        }
+        public void AddUser(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteClient(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateClient(Client client)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddClient(Client client)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteProduct(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateProduct(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool AddProduct(Product product)
         {
             throw new NotImplementedException();
         }
