@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,5 +28,7 @@ namespace Warehouse404.Model
         public int Shelf { get; set; }
 
         public int OrderCount { get; set; } = 0;
+
+        public string Description => $"{Name} [{Manufacturer}] :: {Price.ToString("C", CultureInfo.CurrentCulture)} ({Category})";
     }
 }

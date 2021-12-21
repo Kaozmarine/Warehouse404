@@ -28,12 +28,14 @@ namespace Warehouse404.View
         public MainForm()
         {
             InitializeComponent();
-            
-            clientsView =   new ClientsView(databaseMapper);
-            ordersView =    new OrdersView(databaseMapper);
+
+            StateManager.MainForm = this;
+
+            menuView = new MainMenuView();
+            clientsView =   new ClientsView(databaseMapper);            
             productsView =  new ProductsView(databaseMapper);
-            usersView =     new UsersView(databaseMapper);
-            menuView =      new MainMenuView();
+            usersView =     new UsersView(databaseMapper);            
+            ordersView = new OrdersView(databaseMapper);
         }
 
         public void Configure()
@@ -55,6 +57,16 @@ namespace Warehouse404.View
             ordersView  .Dock = DockStyle.Fill;
             productsView.Dock = DockStyle.Fill;
             usersView   .Dock = DockStyle.Fill;
+        }
+
+        public List<Product> GetProducts()
+        {
+            return productsView.Products;
+        }
+
+        public List<Client> GetClients()
+        {
+            return clientsView.Clients;
         }
 
         private void MenuView_OnMenuUsersClick(object? sender, EventArgs e)

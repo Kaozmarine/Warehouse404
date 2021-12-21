@@ -1,3 +1,4 @@
+using Warehouse404.BusinessLogic;
 using Warehouse404.View;
 
 namespace Warehouse404

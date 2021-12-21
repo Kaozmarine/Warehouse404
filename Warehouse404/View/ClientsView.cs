@@ -72,6 +72,7 @@ namespace Warehouse404.View
             {
                 databaseMapper.AddClient(actionDialog.Client);
             }
+            FillListView();
         }
 
         private void EditButton_Click(object sender, EventArgs e)
@@ -88,6 +89,7 @@ namespace Warehouse404.View
             {
                 databaseMapper.UpdateClient(actionDialog.Client);
             }
+            FillListView();
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -108,6 +110,7 @@ namespace Warehouse404.View
             {
                 databaseMapper.DeleteClient(client.Id);
             }
+            FillListView();
         }
 
         private void ResetFilterButton_Click(object sender, EventArgs e)

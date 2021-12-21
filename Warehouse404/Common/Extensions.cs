@@ -48,6 +48,8 @@ namespace Warehouse404.Common
                     return "Dodaj";
                 case ActionType.Edit:
                     return "Edytuj";
+                case ActionType.Details:
+                    return "Szczegóły";
                 default:
                     return action.ToString();
             }

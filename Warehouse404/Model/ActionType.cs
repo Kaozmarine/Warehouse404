@@ -10,6 +10,8 @@ namespace Warehouse404.Model
     {
         Add = 0,
 
-        Edit = 1
+        Edit = 1,
+
+        Details = 2
     }
 }

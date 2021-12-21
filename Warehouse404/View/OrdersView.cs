@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Warehouse404.BusinessLogic;
 using Warehouse404.Common;
 using Warehouse404.Model;
 using Warehouse404.Persistence;
@@ -26,7 +27,7 @@ namespace Warehouse404.View
         {
             InitializeComponent();
 
-            parent = (MainForm)Parent;
+            parent = StateManager.MainForm;
             databaseMapper = db;
             FillListView();
         }
@@ -65,7 +66,7 @@ namespace Warehouse404.View
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            var actionDialog = new OrderActionForm(ActionType.Add);
+            var actionDialog = new OrderActionForm(databaseMapper, ActionType.Add, null, parent.GetProducts(), parent.GetClients());
             if (actionDialog.ShowDialog(this) == DialogResult.OK)
             {
                 databaseMapper.AddOrder(actionDialog.Order);
@@ -81,7 +82,7 @@ namespace Warehouse404.View
             var orderId = (int)itemsListView.SelectedItems[0].Tag;
             var order = orders.First(p => p.Id == orderId);
 
-            var actionDialog = new OrderActionForm(ActionType.Edit, order);
+            var actionDialog = new OrderActionForm(databaseMapper, ActionType.Edit, order, parent.GetProducts(), parent.GetClients());
             if (actionDialog.ShowDialog(this) == DialogResult.OK)
             {
                 databaseMapper.UpdateOrder(actionDialog.Order);

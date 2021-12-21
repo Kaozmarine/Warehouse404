@@ -126,17 +126,34 @@ namespace Warehouse404.View
         private void SearchButton_Click(object sender, EventArgs e)
         {
             var nameCondition = nameTextBox.Text;
-            var priceFromCondition = 0.0;
-            var priceToCondition = double.MaxValue;
-            var countFromCondition = 0;
-            var countToCondition = int.MaxValue;
-            double.TryParse(priceFromTextBox.Text, out priceFromCondition);            
-            double.TryParse(priceToTextBox.Text, out priceToCondition);            
-            int.TryParse(priceToTextBox.Text, out countFromCondition);            
-            int.TryParse(priceToTextBox.Text, out countToCondition);
+            double priceFromCondition;
+            double priceToCondition;
+            int countFromCondition;
+            int countToCondition;
 
-            if (string.IsNullOrEmpty(nameCondition) || priceFromCondition == 0.0 || priceToCondition == double.MaxValue || countFromCondition == 0 || countToCondition == int.MaxValue)
+            if (!double.TryParse(priceFromTextBox.Text, out priceFromCondition))
             {
+                priceFromCondition = 0.0;
+            }
+            if (!double.TryParse(priceToTextBox.Text, out priceToCondition))
+            {
+                priceToCondition = double.MaxValue;
+            }
+            if (!int.TryParse(countFromTextBox.Text, out countFromCondition))
+            {
+                countFromCondition = 0;
+            }
+            if (!int.TryParse(countToTextBox.Text, out countToCondition))
+            {
+                countToCondition = int.MaxValue;
+            }
+
+            if (string.IsNullOrEmpty(nameCondition) && priceFromCondition == 0.0 && priceToCondition == double.MaxValue && countFromCondition == 0 && countToCondition == int.MaxValue)
+            {
+                if (itemsListView.Items.Count != Products.Count)
+                {
+                    FillListView();
+                }
                 return;
             }
 
@@ -144,14 +161,14 @@ namespace Warehouse404.View
             if (!string.IsNullOrEmpty(nameCondition))
             {
                 searchResult = searchResult
-                    .Where(p => p.Name.Contains(nameCondition))
+                    .Where(p => p.Name.Contains(nameCondition, StringComparison.CurrentCultureIgnoreCase))
                     .ToList();
             }
 
             searchResult = searchResult
                 .Where(p => 
-                    (p.Price <= priceFromCondition && p.Price >= priceToCondition)
-                    && (p.Count <= countFromCondition && p.Count >= countToCondition))
+                    (p.Price >= priceFromCondition && p.Price <= priceToCondition)
+                    && (p.Count >= countFromCondition && p.Count <= countToCondition))
                 .ToList();
 
             itemsListView.Items.Clear();

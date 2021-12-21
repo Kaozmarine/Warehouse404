@@ -144,6 +144,16 @@ namespace Warehouse404.Persistence
             return orders;
         }
 
+        internal void AddProductInOrder(int id, Product orderProduct)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void DeleteProductInOrder(int id1, int id2)
+        {
+            throw new NotImplementedException();
+        }
+
         internal void DeleteOrder(int id)
         {
             throw new NotImplementedException();
