@@ -31,16 +31,17 @@
             this.mainGroupBox = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.searchGroupBox = new System.Windows.Forms.GroupBox();
+            this.zipTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.streetTextBox = new System.Windows.Forms.TextBox();
+            this.labelstreet = new System.Windows.Forms.Label();
+            this.townTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.isCompanyCheckBox = new System.Windows.Forms.CheckBox();
+            this.phoneTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.resetFilterButton = new System.Windows.Forms.Button();
-            this.countToLabel = new System.Windows.Forms.Label();
-            this.countToTextBox = new System.Windows.Forms.TextBox();
-            this.countFromTextBox = new System.Windows.Forms.TextBox();
-            this.countFromLabel = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
-            this.priceToLabel = new System.Windows.Forms.Label();
-            this.priceToTextBox = new System.Windows.Forms.TextBox();
-            this.priceFromTextBox = new System.Windows.Forms.TextBox();
-            this.priceFromLabel = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.actionsGroupBox = new System.Windows.Forms.GroupBox();
@@ -87,21 +88,22 @@
             this.panel1.Controls.Add(this.actionsGroupBox);
             this.panel1.Location = new System.Drawing.Point(4, 36);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1012, 164);
+            this.panel1.Size = new System.Drawing.Size(1012, 188);
             this.panel1.TabIndex = 7;
             // 
             // searchGroupBox
             // 
+            this.searchGroupBox.Controls.Add(this.zipTextBox);
+            this.searchGroupBox.Controls.Add(this.label4);
+            this.searchGroupBox.Controls.Add(this.streetTextBox);
+            this.searchGroupBox.Controls.Add(this.labelstreet);
+            this.searchGroupBox.Controls.Add(this.townTextBox);
+            this.searchGroupBox.Controls.Add(this.label2);
+            this.searchGroupBox.Controls.Add(this.isCompanyCheckBox);
+            this.searchGroupBox.Controls.Add(this.phoneTextBox);
+            this.searchGroupBox.Controls.Add(this.label1);
             this.searchGroupBox.Controls.Add(this.resetFilterButton);
-            this.searchGroupBox.Controls.Add(this.countToLabel);
-            this.searchGroupBox.Controls.Add(this.countToTextBox);
-            this.searchGroupBox.Controls.Add(this.countFromTextBox);
-            this.searchGroupBox.Controls.Add(this.countFromLabel);
             this.searchGroupBox.Controls.Add(this.button7);
-            this.searchGroupBox.Controls.Add(this.priceToLabel);
-            this.searchGroupBox.Controls.Add(this.priceToTextBox);
-            this.searchGroupBox.Controls.Add(this.priceFromTextBox);
-            this.searchGroupBox.Controls.Add(this.priceFromLabel);
             this.searchGroupBox.Controls.Add(this.nameTextBox);
             this.searchGroupBox.Controls.Add(this.nameLabel);
             this.searchGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -110,14 +112,99 @@
             this.searchGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.searchGroupBox.Name = "searchGroupBox";
             this.searchGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.searchGroupBox.Size = new System.Drawing.Size(537, 152);
+            this.searchGroupBox.Size = new System.Drawing.Size(720, 176);
             this.searchGroupBox.TabIndex = 4;
             this.searchGroupBox.TabStop = false;
             this.searchGroupBox.Text = "Wyszukiwanie";
             // 
+            // zipTextBox
+            // 
+            this.zipTextBox.Location = new System.Drawing.Point(408, 136);
+            this.zipTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.zipTextBox.Name = "zipTextBox";
+            this.zipTextBox.Size = new System.Drawing.Size(187, 22);
+            this.zipTextBox.TabIndex = 21;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(304, 144);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(102, 16);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Kod pocztowy";
+            // 
+            // streetTextBox
+            // 
+            this.streetTextBox.Location = new System.Drawing.Point(408, 96);
+            this.streetTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.streetTextBox.Name = "streetTextBox";
+            this.streetTextBox.Size = new System.Drawing.Size(187, 22);
+            this.streetTextBox.TabIndex = 19;
+            // 
+            // labelstreet
+            // 
+            this.labelstreet.AutoSize = true;
+            this.labelstreet.Location = new System.Drawing.Point(303, 103);
+            this.labelstreet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelstreet.Name = "labelstreet";
+            this.labelstreet.Size = new System.Drawing.Size(43, 16);
+            this.labelstreet.TabIndex = 18;
+            this.labelstreet.Text = "Ulica";
+            // 
+            // townTextBox
+            // 
+            this.townTextBox.Location = new System.Drawing.Point(408, 56);
+            this.townTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.townTextBox.Name = "townTextBox";
+            this.townTextBox.Size = new System.Drawing.Size(187, 22);
+            this.townTextBox.TabIndex = 17;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(303, 63);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 16);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Miejscowość";
+            // 
+            // isCompanyCheckBox
+            // 
+            this.isCompanyCheckBox.AutoSize = true;
+            this.isCompanyCheckBox.Checked = true;
+            this.isCompanyCheckBox.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+            this.isCompanyCheckBox.Location = new System.Drawing.Point(88, 24);
+            this.isCompanyCheckBox.Name = "isCompanyCheckBox";
+            this.isCompanyCheckBox.Size = new System.Drawing.Size(102, 20);
+            this.isCompanyCheckBox.TabIndex = 15;
+            this.isCompanyCheckBox.Text = "Czy Firma?";
+            this.isCompanyCheckBox.ThreeState = true;
+            this.isCompanyCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // phoneTextBox
+            // 
+            this.phoneTextBox.Location = new System.Drawing.Point(88, 96);
+            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.phoneTextBox.Name = "phoneTextBox";
+            this.phoneTextBox.Size = new System.Drawing.Size(187, 22);
+            this.phoneTextBox.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 103);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 16);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Telefon";
+            // 
             // resetFilterButton
             // 
-            this.resetFilterButton.Location = new System.Drawing.Point(416, 24);
+            this.resetFilterButton.Location = new System.Drawing.Point(600, 16);
             this.resetFilterButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.resetFilterButton.Name = "resetFilterButton";
             this.resetFilterButton.Size = new System.Drawing.Size(115, 38);
@@ -126,45 +213,9 @@
             this.resetFilterButton.UseVisualStyleBackColor = true;
             this.resetFilterButton.Click += new System.EventHandler(this.ResetFilterButton_Click);
             // 
-            // countToLabel
-            // 
-            this.countToLabel.AutoSize = true;
-            this.countToLabel.Location = new System.Drawing.Point(198, 118);
-            this.countToLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.countToLabel.Name = "countToLabel";
-            this.countToLabel.Size = new System.Drawing.Size(25, 16);
-            this.countToLabel.TabIndex = 10;
-            this.countToLabel.Text = "do";
-            // 
-            // countToTextBox
-            // 
-            this.countToTextBox.Location = new System.Drawing.Point(232, 111);
-            this.countToTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.countToTextBox.Name = "countToTextBox";
-            this.countToTextBox.Size = new System.Drawing.Size(98, 22);
-            this.countToTextBox.TabIndex = 9;
-            // 
-            // countFromTextBox
-            // 
-            this.countFromTextBox.Location = new System.Drawing.Point(90, 111);
-            this.countFromTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.countFromTextBox.Name = "countFromTextBox";
-            this.countFromTextBox.Size = new System.Drawing.Size(98, 22);
-            this.countFromTextBox.TabIndex = 8;
-            // 
-            // countFromLabel
-            // 
-            this.countFromLabel.AutoSize = true;
-            this.countFromLabel.Location = new System.Drawing.Point(9, 114);
-            this.countFromLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.countFromLabel.Name = "countFromLabel";
-            this.countFromLabel.Size = new System.Drawing.Size(62, 16);
-            this.countFromLabel.TabIndex = 7;
-            this.countFromLabel.Text = "Ilosć od";
-            // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(416, 104);
+            this.button7.Location = new System.Drawing.Point(600, 128);
             this.button7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(115, 39);
@@ -173,45 +224,9 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.SearchButton_Click);
             // 
-            // priceToLabel
-            // 
-            this.priceToLabel.AutoSize = true;
-            this.priceToLabel.Location = new System.Drawing.Point(198, 74);
-            this.priceToLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.priceToLabel.Name = "priceToLabel";
-            this.priceToLabel.Size = new System.Drawing.Size(25, 16);
-            this.priceToLabel.TabIndex = 5;
-            this.priceToLabel.Text = "do";
-            // 
-            // priceToTextBox
-            // 
-            this.priceToTextBox.Location = new System.Drawing.Point(232, 71);
-            this.priceToTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.priceToTextBox.Name = "priceToTextBox";
-            this.priceToTextBox.Size = new System.Drawing.Size(98, 22);
-            this.priceToTextBox.TabIndex = 4;
-            // 
-            // priceFromTextBox
-            // 
-            this.priceFromTextBox.Location = new System.Drawing.Point(90, 71);
-            this.priceFromTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.priceFromTextBox.Name = "priceFromTextBox";
-            this.priceFromTextBox.Size = new System.Drawing.Size(98, 22);
-            this.priceFromTextBox.TabIndex = 3;
-            // 
-            // priceFromLabel
-            // 
-            this.priceFromLabel.AutoSize = true;
-            this.priceFromLabel.Location = new System.Drawing.Point(9, 74);
-            this.priceFromLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.priceFromLabel.Name = "priceFromLabel";
-            this.priceFromLabel.Size = new System.Drawing.Size(65, 16);
-            this.priceFromLabel.TabIndex = 2;
-            this.priceFromLabel.Text = "Cena od";
-            // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(90, 32);
+            this.nameTextBox.Location = new System.Drawing.Point(88, 56);
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(187, 22);
@@ -220,7 +235,7 @@
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(9, 39);
+            this.nameLabel.Location = new System.Drawing.Point(9, 63);
             this.nameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(53, 16);
@@ -234,7 +249,7 @@
             this.actionsGroupBox.Controls.Add(this.addButton);
             this.actionsGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.actionsGroupBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.actionsGroupBox.Location = new System.Drawing.Point(552, 8);
+            this.actionsGroupBox.Location = new System.Drawing.Point(736, 8);
             this.actionsGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.actionsGroupBox.Name = "actionsGroupBox";
             this.actionsGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -295,11 +310,11 @@
             this.itemsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.itemsListView.FullRowSelect = true;
             this.itemsListView.GridLines = true;
-            this.itemsListView.Location = new System.Drawing.Point(4, 208);
+            this.itemsListView.Location = new System.Drawing.Point(4, 224);
             this.itemsListView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.itemsListView.MultiSelect = false;
             this.itemsListView.Name = "itemsListView";
-            this.itemsListView.Size = new System.Drawing.Size(1021, 529);
+            this.itemsListView.Size = new System.Drawing.Size(1021, 513);
             this.itemsListView.TabIndex = 3;
             this.itemsListView.UseCompatibleStateImageBehavior = false;
             this.itemsListView.View = System.Windows.Forms.View.Details;
@@ -379,15 +394,7 @@
         private Button editButton;
         private Button addButton;
         private GroupBox searchGroupBox;
-        private Label countToLabel;
-        private TextBox countToTextBox;
-        private TextBox countFromTextBox;
-        private Label countFromLabel;
         private Button button7;
-        private Label priceToLabel;
-        private TextBox priceToTextBox;
-        private TextBox priceFromTextBox;
-        private Label priceFromLabel;
         private TextBox nameTextBox;
         private Label nameLabel;
         private ListView itemsListView;
@@ -403,5 +410,14 @@
         private ColumnHeader building;
         private ColumnHeader apartment;
         private Button resetFilterButton;
+        private CheckBox isCompanyCheckBox;
+        private TextBox phoneTextBox;
+        private Label label1;
+        private TextBox zipTextBox;
+        private Label label4;
+        private TextBox streetTextBox;
+        private Label labelstreet;
+        private TextBox townTextBox;
+        private Label label2;
     }
 }

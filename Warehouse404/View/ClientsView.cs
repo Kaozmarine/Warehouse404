@@ -31,7 +31,7 @@ namespace Warehouse404.View
         {
             itemsListView.Items.Clear();
             RedownloadList();
-            AddItemsToList();
+            AddItemsToList(Clients);
         }
 
         private void RedownloadList()
@@ -39,10 +39,10 @@ namespace Warehouse404.View
             Clients = databaseMapper.GetClients();
         }
 
-        private void AddItemsToList()
+        private void AddItemsToList(List<Client> clientList)
         {
             var items = new List<ListViewItem>();
-            foreach (var client in Clients)
+            foreach (var client in clientList)
             {
                 var item =
                     new ListViewItem(new string[] {
@@ -115,12 +115,82 @@ namespace Warehouse404.View
 
         private void ResetFilterButton_Click(object sender, EventArgs e)
         {
+            nameTextBox.Text = string.Empty;
+            phoneTextBox.Text = string.Empty;
+            townTextBox.Text = string.Empty;
+            streetTextBox.Text = string.Empty;
+            zipTextBox.Text = string.Empty;
 
+            if (itemsListView.Items.Count != Clients.Count)
+            {
+                FillListView();
+            }
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
+            var isCompanyCondition = isCompanyCheckBox.CheckState == CheckState.Checked;
+            var nameCondition = nameTextBox.Text;
+            var phoneCondition = phoneTextBox.Text;
+            var townCondition = townTextBox.Text;
+            var streetCondition = streetTextBox.Text;
+            var zipCondition = zipTextBox.Text;
 
+            if (isCompanyCheckBox.CheckState == CheckState.Indeterminate && string.IsNullOrEmpty(nameCondition) && string.IsNullOrEmpty(phoneCondition) && string.IsNullOrEmpty(townCondition) && string.IsNullOrEmpty(streetCondition) && string.IsNullOrEmpty(zipCondition))
+            {
+                if (itemsListView.Items.Count != Clients.Count)
+                {
+                    FillListView();
+                }
+                return;
+            }
+
+            var searchResult = Clients;
+
+            if (isCompanyCheckBox.CheckState != CheckState.Indeterminate)
+            {
+                searchResult = searchResult
+                    .Where(p => p.IsCompany == isCompanyCheckBox.Checked)
+                    .ToList();
+            }
+
+            if (!string.IsNullOrEmpty(nameCondition))
+            {
+                searchResult = searchResult
+                    .Where(p => p.Name.Contains(nameCondition, StringComparison.CurrentCultureIgnoreCase))
+                    .ToList();
+            }
+
+            if (!string.IsNullOrEmpty(phoneCondition))
+            {
+                searchResult = searchResult
+                    .Where(p => p.PhoneNumber.Contains(phoneCondition, StringComparison.CurrentCultureIgnoreCase))
+                    .ToList();
+            }
+
+            if (!string.IsNullOrEmpty(townCondition))
+            {
+                searchResult = searchResult
+                    .Where(p => p.Address.Town.Contains(townCondition, StringComparison.CurrentCultureIgnoreCase))
+                    .ToList();
+            }
+
+            if (!string.IsNullOrEmpty(streetCondition))
+            {
+                searchResult = searchResult
+                    .Where(p => p.Address.Street.Contains(streetCondition, StringComparison.CurrentCultureIgnoreCase))
+                    .ToList();
+            }
+
+            if (!string.IsNullOrEmpty(zipCondition))
+            {
+                searchResult = searchResult
+                    .Where(p => p.Address.PostalCode.Contains(zipCondition, StringComparison.CurrentCultureIgnoreCase))
+                    .ToList();
+            }
+
+            itemsListView.Items.Clear();
+            AddItemsToList(searchResult);
         }
     }
 }
