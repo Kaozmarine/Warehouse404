@@ -25,5 +25,7 @@ namespace Warehouse404.Model
         public int Rack { get; set; }
 
         public int Shelf { get; set; }
+
+        public int OrderCount { get; set; } = 0;
     }
 }

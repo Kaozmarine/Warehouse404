@@ -18,7 +18,7 @@ namespace Warehouse404.View
     public partial class ClientsView : UserControl
     {
         private DatabaseMapper databaseMapper;
-        private List<Client> clients = new();
+        public List<Client> Clients { get; private set; } = new();
 
         public ClientsView(DatabaseMapper db)
         {
@@ -36,13 +36,13 @@ namespace Warehouse404.View
 
         private void RedownloadList()
         {
-            clients = databaseMapper.GetClients();
+            Clients = databaseMapper.GetClients();
         }
 
         private void AddItemsToList()
         {
             var items = new List<ListViewItem>();
-            foreach (var client in clients)
+            foreach (var client in Clients)
             {
                 var item =
                     new ListViewItem(new string[] {
@@ -81,7 +81,7 @@ namespace Warehouse404.View
                 return;
             }
             var clientId = (int)itemsListView.SelectedItems[0].Tag;
-            var client = clients.First(p => p.Id == clientId);
+            var client = Clients.First(p => p.Id == clientId);
 
             var actionDialog = new ClientActionForm(ActionType.Edit, client);
             if (actionDialog.ShowDialog(this) == DialogResult.OK)
@@ -97,7 +97,7 @@ namespace Warehouse404.View
                 return;
             }
             var clientId = (int)itemsListView.SelectedItems[0].Tag;
-            var client = clients.First(p => p.Id == clientId);
+            var client = Clients.First(p => p.Id == clientId);
 
             var dialogResult = MessageBox.Show(this, "Czy na pewno chcesz usunąć tego klienta?",
                             "Usuwanie klienta",

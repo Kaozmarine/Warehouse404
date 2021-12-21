@@ -29,11 +29,11 @@ namespace Warehouse404.View
         {
             InitializeComponent();
             
-            clientsView = new ClientsView(databaseMapper);
-            ordersView = new OrdersView(databaseMapper);
-            productsView = new ProductsView(databaseMapper);
-            usersView = new UsersView(databaseMapper);
-            menuView = new MainMenuView();
+            clientsView =   new ClientsView(databaseMapper);
+            ordersView =    new OrdersView(databaseMapper);
+            productsView =  new ProductsView(databaseMapper);
+            usersView =     new UsersView(databaseMapper);
+            menuView =      new MainMenuView();
         }
 
         public void Configure()
@@ -51,10 +51,10 @@ namespace Warehouse404.View
             menuView.ConfigureForRole(StateManager.CurrentUser?.Role);
 
             // View
-            clientsView.Dock = DockStyle.Fill;
-            ordersView.Dock = DockStyle.Fill;
+            clientsView .Dock = DockStyle.Fill;
+            ordersView  .Dock = DockStyle.Fill;
             productsView.Dock = DockStyle.Fill;
-            usersView.Dock = DockStyle.Fill;
+            usersView   .Dock = DockStyle.Fill;
         }
 
         private void MenuView_OnMenuUsersClick(object? sender, EventArgs e)

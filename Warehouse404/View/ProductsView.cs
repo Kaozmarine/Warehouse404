@@ -18,8 +18,8 @@ namespace Warehouse404.View
 {
     public partial class ProductsView : UserControl
     {
-        private DatabaseMapper databaseMapper;
-        private List<Product> products = new();
+        private readonly DatabaseMapper databaseMapper;
+        public List<Product> Products { get; private set; } = new();
 
         public ProductsView(DatabaseMapper db)
         {
@@ -33,29 +33,29 @@ namespace Warehouse404.View
         {
             itemsListView.Items.Clear();
             RedownloadList();
-            AddItemsToList();
+            AddItemsToList(Products);
         }
 
         private void RedownloadList()
         {
-            products = databaseMapper.GetProducts();
+            Products = databaseMapper.GetProducts();
         }
 
-        private void AddItemsToList()
+        private void AddItemsToList(List<Product> products)
         {
             var items = new List<ListViewItem>();
             foreach (var product in products)
             {
-                var item = 
-                    new ListViewItem(new string[] { 
-                        product.Name, 
-                        product.Manufacturer, 
-                        product.CatalogNumber, 
-                        product.Category, 
-                        product.Count.ToString(), 
-                        product.Price.ToString("C", CultureInfo.CurrentCulture), 
-                        product.Rack.ToString(), 
-                        product.Shelf.ToString() }) 
+                var item =
+                    new ListViewItem(new string[] {
+                        product.Name,
+                        product.Manufacturer,
+                        product.CatalogNumber,
+                        product.Category,
+                        product.Count.ToString(),
+                        product.Price.ToString("C", CultureInfo.CurrentCulture),
+                        product.Rack.ToString(),
+                        product.Shelf.ToString() })
                     { Tag = product.Id, Name = product.Name };
                 items.Add(item);
             }
@@ -80,7 +80,7 @@ namespace Warehouse404.View
                 return;
             }
             var productId = (int)itemsListView.SelectedItems[0].Tag;
-            var product = products.First(p => p.Id == productId);
+            var product = Products.First(p => p.Id == productId);
 
             var actionDialog = new ProductActionForm(ActionType.Edit, product);
             if (actionDialog.ShowDialog(this) == DialogResult.OK)
@@ -96,13 +96,13 @@ namespace Warehouse404.View
                 return;
             }
             var productId = (int)itemsListView.SelectedItems[0].Tag;
-            var product = products.First(p => p.Id == productId);
+            var product = Products.First(p => p.Id == productId);
 
             var dialogResult = MessageBox.Show(this, "Czy na pewno chcesz usunąć ten produkt?",
                             "Usuwanie produktu",
                             MessageBoxButtons.YesNo,
                             MessageBoxIcon.Question);
-            
+
             if (dialogResult == DialogResult.Yes)
             {
                 databaseMapper.DeleteProduct(product.Id);
@@ -111,12 +111,51 @@ namespace Warehouse404.View
 
         private void ResetFilterButton_Click(object sender, EventArgs e)
         {
+            nameTextBox.Text = string.Empty;
+            priceToTextBox.Text = string.Empty;
+            priceToTextBox.Text = string.Empty;
+            countFromTextBox.Text = string.Empty;
+            countToTextBox.Text = string.Empty;
 
+            if (itemsListView.Items.Count != Products.Count)
+            {
+                FillListView();
+            }
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
+            var nameCondition = nameTextBox.Text;
+            var priceFromCondition = 0.0;
+            var priceToCondition = double.MaxValue;
+            var countFromCondition = 0;
+            var countToCondition = int.MaxValue;
+            double.TryParse(priceFromTextBox.Text, out priceFromCondition);            
+            double.TryParse(priceToTextBox.Text, out priceToCondition);            
+            int.TryParse(priceToTextBox.Text, out countFromCondition);            
+            int.TryParse(priceToTextBox.Text, out countToCondition);
 
+            if (string.IsNullOrEmpty(nameCondition) || priceFromCondition == 0.0 || priceToCondition == double.MaxValue || countFromCondition == 0 || countToCondition == int.MaxValue)
+            {
+                return;
+            }
+
+            var searchResult = Products;
+            if (!string.IsNullOrEmpty(nameCondition))
+            {
+                searchResult = searchResult
+                    .Where(p => p.Name.Contains(nameCondition))
+                    .ToList();
+            }
+
+            searchResult = searchResult
+                .Where(p => 
+                    (p.Price <= priceFromCondition && p.Price >= priceToCondition)
+                    && (p.Count <= countFromCondition && p.Count >= countToCondition))
+                .ToList();
+
+            itemsListView.Items.Clear();
+            AddItemsToList(searchResult);
         }
     }
 }

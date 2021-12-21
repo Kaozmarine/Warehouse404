@@ -96,6 +96,7 @@ namespace Warehouse404.Persistence
                     products_price AS Price,
                     products_rack AS Rack,
                     products_shelf AS Shelf,
+                    orders_has_products_count AS OrderCount,
                     id_clients AS Id,
                     clients_is_company AS IsCompany,
                     clients_name AS Name,

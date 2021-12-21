@@ -20,11 +20,13 @@ namespace Warehouse404.View
     {
         private DatabaseMapper databaseMapper;
         private List<Order> orders = new();
+        private MainForm parent;
 
         public OrdersView(DatabaseMapper db)
         {
             InitializeComponent();
 
+            parent = (MainForm)Parent;
             databaseMapper = db;
             FillListView();
         }
