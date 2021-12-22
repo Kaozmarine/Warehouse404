@@ -10,14 +10,15 @@ namespace Warehouse404.Model
     {
         public int Id { get; set; }
 
-        public OrderStatus Status { get; set; }
+        public OrderStatus Status { get; set; } = OrderStatus.New;
 
         public Client Client { get; set; } = new Client();
 
         public List<Product> Products { get; set; } = new List<Product>();
 
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
 
-        public decimal Total { get; set; }
+        public float Total => !Products.Any() ? 0 : Products.Sum(x => x.OrderCount * x.Price);
     }
 }
+ 

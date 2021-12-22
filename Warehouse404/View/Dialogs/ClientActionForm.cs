@@ -79,5 +79,20 @@ namespace Warehouse404.View.Dialogs
                 e.Handled = true;
             }
         }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            Client.Name = nameTextBox.Text;
+            Client.IsCompany = isCompanyCheckBox.Checked;
+            Client.EntityNumber = entityNumberTextBox.Text;
+            Client.PhoneNumber = phoneTextBox.Text;
+            Client.EmailAddress = emailTextBox.Text;
+
+            Client.Address.Town = townTextBox.Text;
+            Client.Address.PostalCode = postalCodeTextBox.Text;
+            Client.Address.Street = streetTextBox.Text;
+            Client.Address.BuildingNumber = buildingTextBox.Text;
+            Client.Address.ApartmentNumber = apartmentTextBox.Text;
+        }
     }
 }

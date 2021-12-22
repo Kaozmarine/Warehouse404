@@ -77,5 +77,16 @@ namespace Warehouse404.View.Dialogs
                 e.Handled = true;
             }
         }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            Product.Name = nameTextBox.Text;
+            Product.Price = float.Parse(priceTextBox.Text);
+            Product.Count = int.Parse(countTextBox.Text);
+            Product.Category = categoryTextBox.Text;
+            Product.CatalogNumber = catalogNumberTextBox.Text;
+            Product.Rack = int.Parse(rackTextBox.Text);
+            Product.Shelf = int.Parse(shelfTextBox.Text);
+        }
     }
 }

@@ -51,6 +51,11 @@ namespace Warehouse404.Persistence
             return result;
         }
 
+        internal List<Product> GetProductsInOrder(int orderId)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<User> GetUsers()
         {
             var users = new List<User>();
@@ -61,7 +66,8 @@ namespace Warehouse404.Persistence
                     id_users AS Id,
                     users_name AS Name,
                     users_role AS Role,
-                    users_login AS Login
+                    users_login AS Login,
+                    users_password AS Password
                     FROM users 
                     ";
 
@@ -86,7 +92,6 @@ namespace Warehouse404.Persistence
                     id_orders AS Id,
                     orders_status AS Status,
                     orders_date AS Date,
-                    orders_total AS Total,
                     id_products AS Id,
                     products_name AS Name,
                     products_manufacturer AS Manufacturer,
@@ -97,6 +102,7 @@ namespace Warehouse404.Persistence
                     products_rack AS Rack,
                     products_shelf AS Shelf,
                     orders_has_products_count AS OrderCount,
+                    id_orders_has_products AS ProductInOrderId,
                     id_clients AS Id,
                     clients_is_company AS IsCompany,
                     clients_name AS Name,
@@ -142,6 +148,16 @@ namespace Warehouse404.Persistence
             }
 
             return orders;
+        }
+
+        internal void UpdateProductInOrder(Product orderProduct)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void DeleteProductInOrder(int productInOrderId)
+        {
+            throw new NotImplementedException();
         }
 
         internal void AddProductInOrder(int id, Product orderProduct)

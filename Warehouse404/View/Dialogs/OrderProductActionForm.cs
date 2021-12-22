@@ -17,12 +17,13 @@ namespace Warehouse404.View.Dialogs
 {
     public partial class OrderProductActionForm : Form
     {
-        public Product OrderProduct { get;set ; } = new Product();
+        public Product OrderProduct { get; set; }
 
-        public OrderProductActionForm(ActionType actionType)
+        public OrderProductActionForm(ActionType actionType, Product? product = null)
         {
             InitializeComponent();
 
+            OrderProduct = product ?? new Product();
             Configure(actionType);
         }
 
@@ -45,11 +46,8 @@ namespace Warehouse404.View.Dialogs
                 AddItemsToList();
                 addOrderProduct.productComboBox.SelectedValueChanged += ProductComboBox_SelectedValueChanged;
                 addOrderProduct.productComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
-                addOrderProduct.productComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                
+                addOrderProduct.productComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;                
             }
-
-            AddItemsToList();
         }
 
         private void ProductComboBox_SelectedValueChanged(object? sender, EventArgs e)
@@ -69,5 +67,9 @@ namespace Warehouse404.View.Dialogs
             addOrderProduct.productComboBox.DataSource = products;
         }
 
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            OrderProduct.OrderCount = (int)editOrderProduct.orderCountNumeric.Value;
+        }
     }
 }

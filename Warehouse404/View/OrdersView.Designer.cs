@@ -44,6 +44,7 @@
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.actionsGroupBox = new System.Windows.Forms.GroupBox();
+            this.productsButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
@@ -81,7 +82,7 @@
             this.panel1.Controls.Add(this.actionsGroupBox);
             this.panel1.Location = new System.Drawing.Point(4, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(956, 168);
+            this.panel1.Size = new System.Drawing.Size(956, 152);
             this.panel1.TabIndex = 3;
             // 
             // searchGroupBox
@@ -104,7 +105,7 @@
             this.searchGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.searchGroupBox.Name = "searchGroupBox";
             this.searchGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.searchGroupBox.Size = new System.Drawing.Size(537, 152);
+            this.searchGroupBox.Size = new System.Drawing.Size(537, 144);
             this.searchGroupBox.TabIndex = 4;
             this.searchGroupBox.TabStop = false;
             this.searchGroupBox.Text = "Wyszukiwanie";
@@ -158,7 +159,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(414, 103);
+            this.button7.Location = new System.Drawing.Point(416, 96);
             this.button7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(115, 39);
@@ -205,7 +206,7 @@
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(90, 32);
+            this.nameTextBox.Location = new System.Drawing.Point(144, 32);
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(187, 22);
@@ -217,12 +218,13 @@
             this.nameLabel.Location = new System.Drawing.Point(9, 39);
             this.nameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(53, 16);
+            this.nameLabel.Size = new System.Drawing.Size(116, 16);
             this.nameLabel.TabIndex = 0;
-            this.nameLabel.Text = "Nazwa";
+            this.nameLabel.Text = "Nr zamównienia";
             // 
             // actionsGroupBox
             // 
+            this.actionsGroupBox.Controls.Add(this.productsButton);
             this.actionsGroupBox.Controls.Add(this.deleteButton);
             this.actionsGroupBox.Controls.Add(this.editButton);
             this.actionsGroupBox.Controls.Add(this.addButton);
@@ -232,14 +234,25 @@
             this.actionsGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.actionsGroupBox.Name = "actionsGroupBox";
             this.actionsGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.actionsGroupBox.Size = new System.Drawing.Size(202, 152);
+            this.actionsGroupBox.Size = new System.Drawing.Size(344, 152);
             this.actionsGroupBox.TabIndex = 6;
             this.actionsGroupBox.TabStop = false;
             this.actionsGroupBox.Text = "Akcje";
             // 
+            // productsButton
+            // 
+            this.productsButton.Location = new System.Drawing.Point(112, 88);
+            this.productsButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.productsButton.Name = "productsButton";
+            this.productsButton.Size = new System.Drawing.Size(128, 52);
+            this.productsButton.TabIndex = 3;
+            this.productsButton.Text = "Edytuj produkty w zamówieniu";
+            this.productsButton.UseVisualStyleBackColor = true;
+            this.productsButton.Click += new System.EventHandler(this.ProductsButton_Click);
+            // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(104, 88);
+            this.deleteButton.Location = new System.Drawing.Point(248, 88);
             this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(88, 52);
@@ -283,11 +296,11 @@
             this.itemsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.itemsListView.FullRowSelect = true;
             this.itemsListView.GridLines = true;
-            this.itemsListView.Location = new System.Drawing.Point(4, 216);
+            this.itemsListView.Location = new System.Drawing.Point(4, 200);
             this.itemsListView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.itemsListView.MultiSelect = false;
             this.itemsListView.Name = "itemsListView";
-            this.itemsListView.Size = new System.Drawing.Size(958, 560);
+            this.itemsListView.Size = new System.Drawing.Size(958, 576);
             this.itemsListView.TabIndex = 3;
             this.itemsListView.UseCompatibleStateImageBehavior = false;
             this.itemsListView.View = System.Windows.Forms.View.Details;
@@ -355,5 +368,6 @@
         private ColumnHeader count;
         private ColumnHeader total;
         private Button resetFilterButton;
+        private Button productsButton;
     }
 }

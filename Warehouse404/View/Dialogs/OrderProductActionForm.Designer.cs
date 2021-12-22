@@ -57,6 +57,7 @@
             this.addButton.TabIndex = 14;
             this.addButton.Text = "Dodaj";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // editOrderProduct
             // 
@@ -83,8 +84,10 @@
             this.Controls.Add(this.editOrderProduct);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.addButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimizeBox = false;
             this.Name = "OrderProductActionForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.TopMost = true;
             this.ResumeLayout(false);
 

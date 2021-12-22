@@ -21,13 +21,11 @@ namespace Warehouse404.View
     {
         private DatabaseMapper databaseMapper;
         private List<Order> orders = new();
-        private MainForm parent;
 
         public OrdersView(DatabaseMapper db)
         {
             InitializeComponent();
 
-            parent = StateManager.MainForm;
             databaseMapper = db;
             FillListView();
         }
@@ -36,7 +34,7 @@ namespace Warehouse404.View
         {
             itemsListView.Items.Clear();
             RedownloadList();
-            AddItemsToList();
+            AddItemsToList(orders);
         }
 
         private void RedownloadList()
@@ -44,10 +42,10 @@ namespace Warehouse404.View
             orders = databaseMapper.GetOrders();
         }
 
-        private void AddItemsToList()
+        private void AddItemsToList(List<Order> ordersList)
         {
             var items = new List<ListViewItem>();
-            foreach (var order in orders)
+            foreach (var order in ordersList)
             {
                 var item =
                     new ListViewItem(new string[] {
@@ -66,10 +64,11 @@ namespace Warehouse404.View
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            var actionDialog = new OrderActionForm(databaseMapper, ActionType.Add, null, parent.GetProducts(), parent.GetClients());
+            var actionDialog = new OrderActionForm(ActionType.Add, StateManager.MainForm.GetClients());
             if (actionDialog.ShowDialog(this) == DialogResult.OK)
             {
                 databaseMapper.AddOrder(actionDialog.Order);
+                FillListView();
             }
         }
 
@@ -82,7 +81,7 @@ namespace Warehouse404.View
             var orderId = (int)itemsListView.SelectedItems[0].Tag;
             var order = orders.First(p => p.Id == orderId);
 
-            var actionDialog = new OrderActionForm(databaseMapper, ActionType.Edit, order, parent.GetProducts(), parent.GetClients());
+            var actionDialog = new OrderActionForm(ActionType.Edit, StateManager.MainForm.GetClients(), order);
             if (actionDialog.ShowDialog(this) == DialogResult.OK)
             {
                 databaseMapper.UpdateOrder(actionDialog.Order);
@@ -106,17 +105,91 @@ namespace Warehouse404.View
             if (dialogResult == DialogResult.Yes)
             {
                 databaseMapper.DeleteOrder(order.Id);
+                FillListView();
             }
         }
 
+        private void ProductsButton_Click(object sender, EventArgs e)
+        {
+            if (itemsListView.SelectedItems.Count < 1)
+            {
+                return;
+            }
+            var orderId = (int)itemsListView.SelectedItems[0].Tag;
+            var order = orders.First(p => p.Id == orderId);
+
+            var actionDialog = new ProductsForOrderActionForm(databaseMapper, order.Id);
+            if (actionDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                FillListView();
+            }
+        }
+
+        // Search/filter functionality
         private void ResetFilterButton_Click(object sender, EventArgs e)
         {
+            nameTextBox.Text = string.Empty;
+            priceToTextBox.Text = string.Empty;
+            priceToTextBox.Text = string.Empty;
+            countFromTextBox.Text = string.Empty;
+            countToTextBox.Text = string.Empty;
 
+            if (itemsListView.Items.Count != orders.Count)
+            {
+                FillListView();
+            }
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
+            var nameCondition = nameTextBox.Text;
+            double priceFromCondition;
+            double priceToCondition;
+            int countFromCondition;
+            int countToCondition;
 
+            if (!double.TryParse(priceFromTextBox.Text, out priceFromCondition))
+            {
+                priceFromCondition = 0.0;
+            }
+            if (!double.TryParse(priceToTextBox.Text, out priceToCondition))
+            {
+                priceToCondition = double.MaxValue;
+            }
+            if (!int.TryParse(countFromTextBox.Text, out countFromCondition))
+            {
+                countFromCondition = 0;
+            }
+            if (!int.TryParse(countToTextBox.Text, out countToCondition))
+            {
+                countToCondition = int.MaxValue;
+            }
+
+            if (string.IsNullOrEmpty(nameCondition) && priceFromCondition == 0.0 && priceToCondition == double.MaxValue && countFromCondition == 0 && countToCondition == int.MaxValue)
+            {
+                if (itemsListView.Items.Count != orders.Count)
+                {
+                    FillListView();
+                }
+                return;
+            }
+
+            var searchResult = orders;
+            if (!string.IsNullOrEmpty(nameCondition))
+            {
+                searchResult = searchResult
+                    .Where(p => p.Id.ToString().Contains(nameCondition, StringComparison.CurrentCultureIgnoreCase))
+                    .ToList();
+            }
+
+            searchResult = searchResult
+                .Where(p =>
+                    (p.Total >= priceFromCondition && p.Total <= priceToCondition)
+                    && (p.Products.Count >= countFromCondition && p.Products.Count <= countToCondition))
+                .ToList();
+
+            itemsListView.Items.Clear();
+            AddItemsToList(searchResult);
         }
     }
 }

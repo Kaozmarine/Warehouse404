@@ -25,9 +25,11 @@ namespace Warehouse404.Model
 
         public int Rack { get; set; }
 
-        public int Shelf { get; set; }
+        public int Shelf { get; set; } 
 
         public int OrderCount { get; set; } = 0;
+
+        public int ProductInOrderId { get; set; } = 0;
 
         public string Description => $"{Name} [{Manufacturer}] :: {Price.ToString("C", CultureInfo.CurrentCulture)} ({Category})";
     }

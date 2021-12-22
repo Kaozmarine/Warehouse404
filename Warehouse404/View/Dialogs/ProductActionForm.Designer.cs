@@ -246,6 +246,7 @@
             this.addButton.TabIndex = 10;
             this.addButton.Text = "Dodaj";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // ProductActionForm
             // 
@@ -256,6 +257,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.addButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProductActionForm";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

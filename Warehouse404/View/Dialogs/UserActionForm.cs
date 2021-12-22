@@ -16,6 +16,7 @@ namespace Warehouse404.View.Dialogs
     public partial class UserActionForm : Form
     {
         public User User { get; }
+        private bool canClose = true;
 
         public UserActionForm(ActionType actionType, User? user = null)
         {
@@ -39,12 +40,21 @@ namespace Warehouse404.View.Dialogs
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            if (repeatPasswordTextBox.Text == repeatPasswordTextBox.Text)
+            if (passwordTextBox.Text != repeatPasswordTextBox.Text)
             {
-                MessageBox.Show(this, "TEST?",
-                           "TEST",
-                           MessageBoxButtons.YesNo,
+                MessageBox.Show(this, "Powtórz hasło aby je zmienić!",
+                           "Zmiana hasła",
+                           MessageBoxButtons.OK,
                            MessageBoxIcon.Question);
+                canClose = false;
+            }
+        }
+
+        private void UserActionForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!canClose && DialogResult != DialogResult.Cancel)
+            {
+                e.Cancel = true;
             }
         }
     }

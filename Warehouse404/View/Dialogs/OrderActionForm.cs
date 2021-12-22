@@ -18,24 +18,16 @@ namespace Warehouse404.View.Dialogs
     public partial class OrderActionForm : Form
     {
         public Order Order { get; set; }
-        private List<Client> clients;
-        private List<Product> products;
-        private OrdersView parent;
-        private DatabaseMapper databaseMapper;
+        private readonly List<Client> clients;
 
         public OrderActionForm(
-            DatabaseMapper db,
             ActionType actionType,
-            Order? order = null, 
-            List<Product>? productsIn = null, 
-            List<Client>? clientsIn = null)
+            List<Client> clients,
+            Order? order = null)
         {
             InitializeComponent();
-            databaseMapper = db;
-            Order ??= new Order();
-            clients ??= new List<Client>();
-            products ??= new List<Product>();
-            parent = (OrdersView)Parent;
+            Order = order ?? new Order();
+            this.clients = clients;
             Configure(actionType);
         }
 
@@ -53,76 +45,12 @@ namespace Warehouse404.View.Dialogs
             dateTextBox.Text = Order.Date.ToString();
             statusComboBox.SelectedIndex = (int)Order.Status - 1;
             totalTextBox.Text = Order.Total.ToString("C", CultureInfo.CurrentCulture);
-
-            AddItemsToList();
         }
 
-        private void AddItemsToList()
+        private void AddButton_Click(object sender, EventArgs e)
         {
-            orderProductsListView.Items.Clear();
-            var items = new List<ListViewItem>();
-            foreach (var product in Order.Products)
-            {
-                var item =
-                    new ListViewItem(new string[] {
-                        product.Name,
-                        product.OrderCount.ToString(),
-                        (product.Price * product.OrderCount).ToString("C", CultureInfo.CurrentCulture)
-                    })
-                    { Tag = product.Id, Name = product.Name};
-                items.Add(item);
-            }
-
-            orderProductsListView.Items.AddRange(items.ToArray());
-            Helpers.AutoSizeColumnList(orderProductsListView);
-        }
-
-        private void OrderProductsListView_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            ListViewHitTestInfo info = orderProductsListView.HitTest(e.X, e.Y);
-            ListViewItem item = info.Item;
-            var orderProductDialog = new OrderProductActionForm(ActionType.Edit);
-
-            if (item != null)
-            { 
-                var selectedProduct = Order.Products.First(p => p.Id == (int)item.Tag);
-                var selectedProductIndex = Order.Products.IndexOf(selectedProduct);
-                orderProductDialog.OrderProduct = selectedProduct;
-                var dialogResult = orderProductDialog.ShowDialog(this);
-                if (dialogResult == DialogResult.OK)
-                {
-                    Order.Products[selectedProductIndex] = orderProductDialog.OrderProduct;
-                }
-            }
-        }
-
-        private void AddProductButton_Click(object sender, EventArgs e)
-        {
-            var actionDialog = new OrderProductActionForm(ActionType.Add);
-            if (actionDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                databaseMapper.AddProductInOrder(Order.Id, actionDialog.OrderProduct);
-            }
-        }
-
-        private void DeleteProductButton_Click(object sender, EventArgs e)
-        {
-            if (orderProductsListView.SelectedItems.Count < 1)
-            {
-                return;
-            }
-            var productId = (int)orderProductsListView.SelectedItems[0].Tag;
-            var product = Order.Products.First(p => p.Id == productId);
-
-            var dialogResult = MessageBox.Show(this, "Czy na pewno chcesz usunąć ten produkt z zamówienia?",
-                            "Usuwanie produktu",
-                            MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Question);
-
-            if (dialogResult == DialogResult.Yes)
-            {
-                databaseMapper.DeleteProductInOrder(Order.Id, product.Id);
-            }
+            Order.Client = (Client)clientsComboBox.SelectedItem;
+            Order.Status = (OrderStatus)(statusComboBox.SelectedIndex + 1);
         }
     }
 }

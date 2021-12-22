@@ -43,15 +43,15 @@
             this.postalCodeTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.streetTextBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.buildingTextBox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.apartmentTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.buildingTextBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.streetTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.isCompanyCheckBox = new System.Windows.Forms.CheckBox();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -95,6 +95,7 @@
             this.addButton.TabIndex = 14;
             this.addButton.Text = "Dodaj";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // phoneTextBox
             // 
@@ -217,6 +218,66 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dane adresowe";
             // 
+            // apartmentTextBox
+            // 
+            this.apartmentTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.apartmentTextBox.Location = new System.Drawing.Point(130, 187);
+            this.apartmentTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.apartmentTextBox.Name = "apartmentTextBox";
+            this.apartmentTextBox.Size = new System.Drawing.Size(187, 22);
+            this.apartmentTextBox.TabIndex = 9;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.Location = new System.Drawing.Point(14, 189);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(45, 16);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Lokal";
+            // 
+            // buildingTextBox
+            // 
+            this.buildingTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buildingTextBox.Location = new System.Drawing.Point(130, 152);
+            this.buildingTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buildingTextBox.Name = "buildingTextBox";
+            this.buildingTextBox.Size = new System.Drawing.Size(187, 22);
+            this.buildingTextBox.TabIndex = 7;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(14, 154);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(67, 16);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Budynek";
+            // 
+            // streetTextBox
+            // 
+            this.streetTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.streetTextBox.Location = new System.Drawing.Point(130, 113);
+            this.streetTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.streetTextBox.Name = "streetTextBox";
+            this.streetTextBox.Size = new System.Drawing.Size(187, 22);
+            this.streetTextBox.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(14, 115);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 16);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Ulica";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.isCompanyCheckBox);
@@ -239,6 +300,15 @@
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             // 
+            // isCompanyCheckBox
+            // 
+            this.isCompanyCheckBox.AutoSize = true;
+            this.isCompanyCheckBox.Location = new System.Drawing.Point(130, 67);
+            this.isCompanyCheckBox.Name = "isCompanyCheckBox";
+            this.isCompanyCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.isCompanyCheckBox.TabIndex = 12;
+            this.isCompanyCheckBox.UseVisualStyleBackColor = true;
+            // 
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -250,75 +320,6 @@
             this.cancelButton.TabIndex = 15;
             this.cancelButton.Text = "Anuluj";
             this.cancelButton.UseVisualStyleBackColor = true;
-            // 
-            // streetTextBox
-            // 
-            this.streetTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.streetTextBox.Location = new System.Drawing.Point(130, 113);
-            this.streetTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.streetTextBox.Name = "streetTextBox";
-            this.streetTextBox.Size = new System.Drawing.Size(187, 22);
-            this.streetTextBox.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(14, 115);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 16);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Ulica";
-            // 
-            // buildingTextBox
-            // 
-            this.buildingTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buildingTextBox.Location = new System.Drawing.Point(130, 152);
-            this.buildingTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buildingTextBox.Name = "buildingTextBox";
-            this.buildingTextBox.Size = new System.Drawing.Size(187, 22);
-            this.buildingTextBox.TabIndex = 7;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(14, 154);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 16);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Budynek";
-            // 
-            // apartmentTextBox
-            // 
-            this.apartmentTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.apartmentTextBox.Location = new System.Drawing.Point(130, 187);
-            this.apartmentTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.apartmentTextBox.Name = "apartmentTextBox";
-            this.apartmentTextBox.Size = new System.Drawing.Size(187, 22);
-            this.apartmentTextBox.TabIndex = 9;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(14, 189);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(45, 16);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Lokal";
-            // 
-            // isCompanyCheckBox
-            // 
-            this.isCompanyCheckBox.AutoSize = true;
-            this.isCompanyCheckBox.Location = new System.Drawing.Point(130, 67);
-            this.isCompanyCheckBox.Name = "isCompanyCheckBox";
-            this.isCompanyCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.isCompanyCheckBox.TabIndex = 12;
-            this.isCompanyCheckBox.UseVisualStyleBackColor = true;
             // 
             // ClientActionForm
             // 
