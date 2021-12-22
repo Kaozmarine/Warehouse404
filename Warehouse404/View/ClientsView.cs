@@ -71,8 +71,8 @@ namespace Warehouse404.View
             if (actionDialog.ShowDialog(this) == DialogResult.OK)
             {
                 databaseMapper.AddClient(actionDialog.Client);
-            }
-            FillListView();
+                FillListView();
+            }            
         }
 
         private void EditButton_Click(object sender, EventArgs e)
@@ -88,8 +88,8 @@ namespace Warehouse404.View
             if (actionDialog.ShowDialog(this) == DialogResult.OK)
             {
                 databaseMapper.UpdateClient(actionDialog.Client);
-            }
-            FillListView();
+                FillListView();
+            }            
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -109,8 +109,8 @@ namespace Warehouse404.View
             if (dialogResult == DialogResult.Yes)
             {
                 databaseMapper.DeleteClient(client.Id);
-            }
-            FillListView();
+                FillListView();
+            }            
         }
 
         private void ResetFilterButton_Click(object sender, EventArgs e)

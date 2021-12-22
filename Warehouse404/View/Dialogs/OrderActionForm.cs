@@ -38,7 +38,7 @@ namespace Warehouse404.View.Dialogs
             addButton.Text = actionType == ActionType.Edit ? "Zapisz" : "Dodaj";
 
             clientsComboBox.DataSource = clients;
-            clientsComboBox.DisplayMember = "Name";
+            clientsComboBox.DisplayMember = "Description";
             clientsComboBox.ValueMember = "Id";
             clientsComboBox.SelectedValue = Order.Client.Id;
 

@@ -53,6 +53,7 @@
             this.date = new System.Windows.Forms.ColumnHeader();
             this.count = new System.Windows.Forms.ColumnHeader();
             this.total = new System.Windows.Forms.ColumnHeader();
+            this.status = new System.Windows.Forms.ColumnHeader();
             this.mainGroupBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.searchGroupBox.SuspendLayout();
@@ -290,6 +291,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.itemsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.number,
+            this.status,
             this.date,
             this.count,
             this.total});
@@ -324,6 +326,11 @@
             // 
             this.total.Text = "Wartość";
             this.total.Width = 120;
+            // 
+            // status
+            // 
+            this.status.Text = "Status";
+            this.status.Width = 100;
             // 
             // OrdersView
             // 
@@ -369,5 +376,6 @@
         private ColumnHeader total;
         private Button resetFilterButton;
         private Button productsButton;
+        private ColumnHeader status;
     }
 }

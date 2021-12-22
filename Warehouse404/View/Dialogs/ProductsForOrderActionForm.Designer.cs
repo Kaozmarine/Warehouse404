@@ -65,6 +65,7 @@
             this.deleteProductButton.TabIndex = 17;
             this.deleteProductButton.Text = "Usuń";
             this.deleteProductButton.UseVisualStyleBackColor = true;
+            this.deleteProductButton.Click += new System.EventHandler(this.DeleteProductButton_Click);
             // 
             // orderProductsListView
             // 
@@ -81,6 +82,7 @@
             this.orderProductsListView.TabIndex = 0;
             this.orderProductsListView.UseCompatibleStateImageBehavior = false;
             this.orderProductsListView.View = System.Windows.Forms.View.Details;
+            this.orderProductsListView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.OrderProductsListView_MouseDoubleClick);
             // 
             // columnHeader1
             // 
@@ -106,6 +108,7 @@
             this.addProductButton.TabIndex = 16;
             this.addProductButton.Text = "Dodaj";
             this.addProductButton.UseVisualStyleBackColor = true;
+            this.addProductButton.Click += new System.EventHandler(this.AddProductButton_Click);
             // 
             // button1
             // 

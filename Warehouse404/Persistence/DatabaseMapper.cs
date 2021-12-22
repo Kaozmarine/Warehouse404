@@ -168,9 +168,9 @@ namespace Warehouse404.Persistence
                     addresses_building_number AS BuildingNumber,
                     addresses_apartment_number AS ApartmentNumber,
                     addresses_postal_code AS PostalCode
-                    FROM orders_has_products
-                    INNER JOIN orders ON orders_id_orders = id_orders
-                    INNER JOIN products ON products_id_products = id_products
+                    FROM orders
+                    LEFT JOIN orders_has_products ON orders_id_orders = id_orders
+                    LEFT JOIN products ON products_id_products = id_products
                     INNER JOIN clients ON clients_id_clients = id_clients
                     INNER JOIN addresses ON addresses_id_addresses = id_addresses
                     ";
@@ -190,14 +190,18 @@ namespace Warehouse404.Persistence
                             orderDictionary.Add(orderEntry.Id, orderEntry);
                         }
 
-                        orderEntry.Products.Add(product);
+                        if (product is not null)
+                        {
+                            orderEntry.Products.Add(product);
+                        } 
+
                         return orderEntry;
                     },
                     splitOn: "Id")
                 .Distinct()
                 .ToList();
 
-                orders = connection.Query<Order>(sql).ToList();
+                orders = list;
             }
 
             return orders;
@@ -321,7 +325,7 @@ namespace Warehouse404.Persistence
                 INSERT INTO orders
                 (orders_status, clients_id_clients, orders_date, orders_total)
                 VALUES
-                (@status @client_id, @date, 0);";
+                (@status, @client_id, @date, 0);";
 
                 var rowsAffected = connection.Execute(sql, new { status = (int)order.Status, client_id = order.Client.Id, date = order.Date });
 
@@ -466,20 +470,19 @@ namespace Warehouse404.Persistence
             using (var connection = new MySqlConnection(_connectionString))
             {
                 string addressSql = @"
-                    DECLARE @ID int = 0;
                     INSERT INTO addresses
                     (addresses_town, addresses_street, addresses_building_number, addresses_apartment_number, addresses_postal_code)
                     VALUES
-                    (@town, @street, @street, @building_number, @apartment_number, @postal_code);
-                    SELECT @ID = SCOPE_IDENTITY();";
+                    (@town, @street, @building_number, @apartment_number, @postal_code);
+                    SELECT LAST_INSERT_ID();";
 
-                var addressId = connection.Query<int>(addressSql, 
+                var addressId = connection.QuerySingle<int>(addressSql, 
                     new { 
                         town = client.Address.Town, 
                         street = client.Address.Street, 
                         building_number = client.Address.BuildingNumber, 
                         apartment_number = client.Address.ApartmentNumber, 
-                        postal_code = client.Address.PostalCode}).Single();
+                        postal_code = client.Address.PostalCode});
 
                     
                 if (addressId > 0)

@@ -50,8 +50,9 @@ namespace Warehouse404.View
                 var item =
                     new ListViewItem(new string[] {
                         order.Id.ToString(),
+                        order.Status.ToFriendlyString(),
                         order.Date.ToString(),
-                        order.Products.Count.ToString(),
+                        order.Products.Sum(x => x.OrderCount).ToString(),
                         order.Total.ToString("C", CultureInfo.CurrentCulture) 
                     })
                     { Tag = order.Id, Name = order.Id.ToString() };
