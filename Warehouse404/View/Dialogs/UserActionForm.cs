@@ -45,8 +45,27 @@ namespace Warehouse404.View.Dialogs
                 MessageBox.Show(this, "Powtórz hasło aby je zmienić!",
                            "Zmiana hasła",
                            MessageBoxButtons.OK,
-                           MessageBoxIcon.Question);
+                           MessageBoxIcon.Warning);
                 canClose = false;
+            }
+            else if(string.IsNullOrWhiteSpace(passwordTextBox.Text) 
+                || (roleComboBox.SelectedIndex < 1 || roleComboBox.SelectedIndex > 3) 
+                || string.IsNullOrWhiteSpace(nameTextBox.Text)
+                || string.IsNullOrWhiteSpace(loginTextBox.Text))
+            {
+                MessageBox.Show(this, "Sprawdż poprawnośc danych i spróbuj ponownie",
+                           "Błędne dane",
+                           MessageBoxButtons.OK,
+                           MessageBoxIcon.Warning);
+                canClose = false;
+            }
+            else
+            {
+                User.Password = passwordTextBox.Text;
+                User.Role = (Role)roleComboBox.SelectedIndex + 1;
+                User.Name = nameTextBox.Text;
+                User.Login = loginTextBox.Text;
+                canClose = true;
             }
         }
 

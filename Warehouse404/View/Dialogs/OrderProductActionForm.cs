@@ -70,6 +70,7 @@ namespace Warehouse404.View.Dialogs
         private void AddButton_Click(object sender, EventArgs e)
         {
             OrderProduct.OrderCount = (int)editOrderProduct.orderCountNumeric.Value;
+            OrderProduct.Id = (int)addOrderProduct.productComboBox.SelectedValue;
         }
     }
 }

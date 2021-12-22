@@ -60,6 +60,7 @@ namespace Warehouse404.View
             if (actionDialog.ShowDialog(this) == DialogResult.OK)
             {
                 databaseMapper.AddUser(actionDialog.User);
+                FillListView();
             }
         }
 
@@ -76,6 +77,7 @@ namespace Warehouse404.View
             if (actionDialog.ShowDialog(this) == DialogResult.OK)
             {
                 databaseMapper.UpdateUser(actionDialog.User);
+                FillListView();
             }
         }
 
@@ -106,6 +108,7 @@ namespace Warehouse404.View
             if (dialogResult == DialogResult.Yes)
             {
                 databaseMapper.DeleteUser(user.Id);
+                FillListView();
             }
         }
 
