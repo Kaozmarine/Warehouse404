@@ -86,6 +86,7 @@ namespace Warehouse404.View
             if (actionDialog.ShowDialog(this) == DialogResult.OK)
             {
                 databaseMapper.UpdateOrder(actionDialog.Order);
+                FillListView();
             }
         }
 
@@ -130,7 +131,7 @@ namespace Warehouse404.View
         private void ResetFilterButton_Click(object sender, EventArgs e)
         {
             nameTextBox.Text = string.Empty;
-            priceToTextBox.Text = string.Empty;
+            priceFromTextBox.Text = string.Empty;
             priceToTextBox.Text = string.Empty;
             countFromTextBox.Text = string.Empty;
             countToTextBox.Text = string.Empty;
@@ -186,7 +187,7 @@ namespace Warehouse404.View
             searchResult = searchResult
                 .Where(p =>
                     (p.Total >= priceFromCondition && p.Total <= priceToCondition)
-                    && (p.Products.Count >= countFromCondition && p.Products.Count <= countToCondition))
+                    && (p.Products.Sum(x => x.OrderCount) >= countFromCondition && p.Products.Sum(x => x.OrderCount) <= countToCondition))
                 .ToList();
 
             itemsListView.Items.Clear();

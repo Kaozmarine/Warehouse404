@@ -32,7 +32,7 @@ namespace Warehouse404.View.Dialogs
             addButton.Text = actionType == ActionType.Edit ? "Zapisz" : "Dodaj";
 
             nameTextBox.Text = Product.Name;
-            priceTextBox.Text = Product.Price.ToString("C", CultureInfo.CurrentCulture);
+            priceTextBox.Text = Product.Price.ToString("N", CultureInfo.CurrentCulture);
             countTextBox.Text = Product.Count.ToString();
             categoryTextBox.Text = Product.Category;
             catalogNumberTextBox.Text = Product.CatalogNumber;

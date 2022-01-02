@@ -537,7 +537,7 @@ namespace Warehouse404.Persistence
                     addresses_street = @street,
                     addresses_building_number = @building,
                     addresses_apartment_number = @apartment,
-                    addresses_postal_code = @postal_code,
+                    addresses_postal_code = @postal_code
                 WHERE id_addresses = @address_id;";
 
                 var rowsClient = connection.Execute(clientSql, new
@@ -638,7 +638,7 @@ namespace Warehouse404.Persistence
                     products_price = @price,
                     products_rack = @rack,
                     products_shelf = @shelf
-                WHERE id_users = @product_id;";
+                WHERE id_products = @product_id;";
 
                 var rowsAffected = connection.Execute(sql, new
                 {

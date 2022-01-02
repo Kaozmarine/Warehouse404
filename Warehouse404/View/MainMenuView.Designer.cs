@@ -96,7 +96,7 @@
             this.ordersButton.Name = "ordersButton";
             this.ordersButton.Size = new System.Drawing.Size(220, 66);
             this.ordersButton.TabIndex = 5;
-            this.ordersButton.Text = "Zamównienia";
+            this.ordersButton.Text = "Zamówienia";
             this.ordersButton.UseVisualStyleBackColor = true;
             this.ordersButton.Click += new System.EventHandler(this.OrdersButton_Click);
             // 

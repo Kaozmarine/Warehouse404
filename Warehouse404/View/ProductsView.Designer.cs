@@ -31,6 +31,7 @@
             this.mainGroupBox = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.searchGroupBox = new System.Windows.Forms.GroupBox();
+            this.resetFilterButton = new System.Windows.Forms.Button();
             this.countToLabel = new System.Windows.Forms.Label();
             this.countToTextBox = new System.Windows.Forms.TextBox();
             this.countFromTextBox = new System.Windows.Forms.TextBox();
@@ -55,7 +56,6 @@
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
-            this.resetFilterButton = new System.Windows.Forms.Button();
             this.mainGroupBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.searchGroupBox.SuspendLayout();
@@ -70,6 +70,7 @@
             this.mainGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.mainGroupBox.Location = new System.Drawing.Point(0, 0);
             this.mainGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.mainGroupBox.MinimumSize = new System.Drawing.Size(774, 718);
             this.mainGroupBox.Name = "mainGroupBox";
             this.mainGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.mainGroupBox.Size = new System.Drawing.Size(774, 718);
@@ -112,6 +113,17 @@
             this.searchGroupBox.TabIndex = 4;
             this.searchGroupBox.TabStop = false;
             this.searchGroupBox.Text = "Wyszukiwanie";
+            // 
+            // resetFilterButton
+            // 
+            this.resetFilterButton.Location = new System.Drawing.Point(414, 21);
+            this.resetFilterButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.resetFilterButton.Name = "resetFilterButton";
+            this.resetFilterButton.Size = new System.Drawing.Size(115, 38);
+            this.resetFilterButton.TabIndex = 11;
+            this.resetFilterButton.Text = "Wyczyść filtry";
+            this.resetFilterButton.UseVisualStyleBackColor = true;
+            this.resetFilterButton.Click += new System.EventHandler(this.ResetFilterButton_Click);
             // 
             // countToLabel
             // 
@@ -326,17 +338,6 @@
             // columnHeader8
             // 
             this.columnHeader8.Text = "Półka";
-            // 
-            // resetFilterButton
-            // 
-            this.resetFilterButton.Location = new System.Drawing.Point(414, 21);
-            this.resetFilterButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.resetFilterButton.Name = "resetFilterButton";
-            this.resetFilterButton.Size = new System.Drawing.Size(115, 38);
-            this.resetFilterButton.TabIndex = 11;
-            this.resetFilterButton.Text = "Wyczyść filtry";
-            this.resetFilterButton.UseVisualStyleBackColor = true;
-            this.resetFilterButton.Click += new System.EventHandler(this.ResetFilterButton_Click);
             // 
             // ProductsView
             // 

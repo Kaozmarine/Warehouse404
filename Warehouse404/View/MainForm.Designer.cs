@@ -50,7 +50,7 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.splitContainer.Panel2MinSize = 400;
+            this.splitContainer.Panel2MinSize = 700;
             this.splitContainer.Size = new System.Drawing.Size(1242, 776);
             this.splitContainer.SplitterDistance = 225;
             this.splitContainer.TabIndex = 0;

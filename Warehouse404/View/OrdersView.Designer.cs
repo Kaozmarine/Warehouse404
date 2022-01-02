@@ -50,10 +50,10 @@
             this.addButton = new System.Windows.Forms.Button();
             this.itemsListView = new System.Windows.Forms.ListView();
             this.number = new System.Windows.Forms.ColumnHeader();
+            this.status = new System.Windows.Forms.ColumnHeader();
             this.date = new System.Windows.Forms.ColumnHeader();
             this.count = new System.Windows.Forms.ColumnHeader();
             this.total = new System.Windows.Forms.ColumnHeader();
-            this.status = new System.Windows.Forms.ColumnHeader();
             this.mainGroupBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.searchGroupBox.SuspendLayout();
@@ -156,7 +156,7 @@
             this.countFromLabel.Name = "countFromLabel";
             this.countFromLabel.Size = new System.Drawing.Size(62, 16);
             this.countFromLabel.TabIndex = 7;
-            this.countFromLabel.Text = "Ilosć od";
+            this.countFromLabel.Text = "Ilość od";
             // 
             // button7
             // 
@@ -219,9 +219,9 @@
             this.nameLabel.Location = new System.Drawing.Point(9, 39);
             this.nameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(116, 16);
+            this.nameLabel.Size = new System.Drawing.Size(108, 16);
             this.nameLabel.TabIndex = 0;
-            this.nameLabel.Text = "Nr zamównienia";
+            this.nameLabel.Text = "Nr zamówienia";
             // 
             // actionsGroupBox
             // 
@@ -312,6 +312,11 @@
             this.number.Text = "Nr zamówienia";
             this.number.Width = 120;
             // 
+            // status
+            // 
+            this.status.Text = "Status";
+            this.status.Width = 100;
+            // 
             // date
             // 
             this.date.Text = "Data zamówienia";
@@ -326,11 +331,6 @@
             // 
             this.total.Text = "Wartość";
             this.total.Width = 120;
-            // 
-            // status
-            // 
-            this.status.Text = "Status";
-            this.status.Width = 100;
             // 
             // OrdersView
             // 

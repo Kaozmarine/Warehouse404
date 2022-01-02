@@ -70,6 +70,7 @@ namespace Warehouse404.View
             if (actionDialog.ShowDialog(this) == DialogResult.OK)
             {
                 databaseMapper.AddProduct(actionDialog.Product);
+                FillListView();
             }
         }
 
@@ -86,6 +87,7 @@ namespace Warehouse404.View
             if (actionDialog.ShowDialog(this) == DialogResult.OK)
             {
                 databaseMapper.UpdateProduct(actionDialog.Product);
+                FillListView();
             }
         }
 
@@ -106,13 +108,14 @@ namespace Warehouse404.View
             if (dialogResult == DialogResult.Yes)
             {
                 databaseMapper.DeleteProduct(product.Id);
+                FillListView();
             }
         }
 
         private void ResetFilterButton_Click(object sender, EventArgs e)
         {
             nameTextBox.Text = string.Empty;
-            priceToTextBox.Text = string.Empty;
+            priceFromTextBox.Text = string.Empty;
             priceToTextBox.Text = string.Empty;
             countFromTextBox.Text = string.Empty;
             countToTextBox.Text = string.Empty;
