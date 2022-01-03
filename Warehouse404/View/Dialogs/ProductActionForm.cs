@@ -81,12 +81,11 @@ namespace Warehouse404.View.Dialogs
         private void AddButton_Click(object sender, EventArgs e)
         {
             Product.Name = nameTextBox.Text;
-            Product.Price = float.Parse(priceTextBox.Text);
-            Product.Count = int.Parse(countTextBox.Text);
-            Product.Category = categoryTextBox.Text;
+            Product.Price = float.TryParse(priceTextBox.Text, out float price) ? price : 0;
+            Product.Count = int.TryParse(countTextBox.Text, out int count) ? count : 0;
             Product.CatalogNumber = catalogNumberTextBox.Text;
-            Product.Rack = int.Parse(rackTextBox.Text);
-            Product.Shelf = int.Parse(shelfTextBox.Text);
+            Product.Rack = int.TryParse(rackTextBox.Text, out int rack) ? rack : 0;
+            Product.Shelf = int.TryParse(shelfTextBox.Text, out int shelf) ? shelf : 0;
         }
     }
 }
