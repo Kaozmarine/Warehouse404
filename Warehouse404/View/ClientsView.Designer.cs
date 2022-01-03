@@ -59,6 +59,7 @@
             this.street = new System.Windows.Forms.ColumnHeader();
             this.building = new System.Windows.Forms.ColumnHeader();
             this.apartment = new System.Windows.Forms.ColumnHeader();
+            this.company = new System.Windows.Forms.ColumnHeader();
             this.mainGroupBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.searchGroupBox.SuspendLayout();
@@ -298,6 +299,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.itemsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.number,
+            this.company,
             this.name,
             this.entityNumber,
             this.phone,
@@ -369,6 +371,10 @@
             this.apartment.Text = "Lokal";
             this.apartment.Width = 80;
             // 
+            // company
+            // 
+            this.company.Text = "Firma";
+            // 
             // ClientsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -419,5 +425,6 @@
         private Label labelstreet;
         private TextBox townTextBox;
         private Label label2;
+        private ColumnHeader company;
     }
 }

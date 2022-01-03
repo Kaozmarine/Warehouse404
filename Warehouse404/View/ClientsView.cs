@@ -47,6 +47,7 @@ namespace Warehouse404.View
                 var item =
                     new ListViewItem(new string[] {
                         client.Id.ToString(),
+                        client.IsCompany ? "Tak" : "Nie",
                         client.Name,
                         client.EntityNumber,
                         client.PhoneNumber,
