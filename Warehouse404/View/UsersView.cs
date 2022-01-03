@@ -128,7 +128,7 @@ namespace Warehouse404.View
             var nameCondition = nameTextBox.Text;
             var loginCondition = loginTextBox.Text;
 
-            if (string.IsNullOrEmpty(nameCondition) && string.IsNullOrEmpty(loginCondition))
+            if (string.IsNullOrWhiteSpace(nameCondition) && string.IsNullOrWhiteSpace(loginCondition))
             {
                 if (itemsListView.Items.Count != users.Count)
                 {
@@ -138,14 +138,14 @@ namespace Warehouse404.View
             }
 
             var searchResult = users;
-            if (!string.IsNullOrEmpty(nameCondition))
+            if (!string.IsNullOrWhiteSpace(nameCondition))
             {
                 searchResult = searchResult
                     .Where(p => p.Name.Contains(nameCondition, StringComparison.CurrentCultureIgnoreCase))
                     .ToList();
             }
 
-            if (!string.IsNullOrEmpty(loginCondition))
+            if (!string.IsNullOrWhiteSpace(loginCondition))
             {
                 searchResult = searchResult
                     .Where(p => p.Login.Contains(loginCondition, StringComparison.CurrentCultureIgnoreCase))

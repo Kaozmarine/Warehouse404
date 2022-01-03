@@ -49,7 +49,7 @@ namespace Warehouse404.View.Dialogs
                 canClose = false;
             }
             else if(string.IsNullOrWhiteSpace(passwordTextBox.Text) 
-                || (roleComboBox.SelectedIndex < 1 || roleComboBox.SelectedIndex > 3) 
+                || (roleComboBox.SelectedIndex < 0 || roleComboBox.SelectedIndex > 2) 
                 || string.IsNullOrWhiteSpace(nameTextBox.Text)
                 || string.IsNullOrWhiteSpace(loginTextBox.Text))
             {

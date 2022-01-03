@@ -154,35 +154,35 @@ namespace Warehouse404.View
                     .ToList();
             }
 
-            if (!string.IsNullOrEmpty(nameCondition))
+            if (!string.IsNullOrWhiteSpace(nameCondition))
             {
                 searchResult = searchResult
                     .Where(p => p.Name.Contains(nameCondition, StringComparison.CurrentCultureIgnoreCase))
                     .ToList();
             }
 
-            if (!string.IsNullOrEmpty(phoneCondition))
+            if (!string.IsNullOrWhiteSpace(phoneCondition))
             {
                 searchResult = searchResult
                     .Where(p => p.PhoneNumber.Contains(phoneCondition, StringComparison.CurrentCultureIgnoreCase))
                     .ToList();
             }
 
-            if (!string.IsNullOrEmpty(townCondition))
+            if (!string.IsNullOrWhiteSpace(townCondition))
             {
                 searchResult = searchResult
                     .Where(p => p.Address.Town.Contains(townCondition, StringComparison.CurrentCultureIgnoreCase))
                     .ToList();
             }
 
-            if (!string.IsNullOrEmpty(streetCondition))
+            if (!string.IsNullOrWhiteSpace(streetCondition))
             {
                 searchResult = searchResult
                     .Where(p => p.Address.Street.Contains(streetCondition, StringComparison.CurrentCultureIgnoreCase))
                     .ToList();
             }
 
-            if (!string.IsNullOrEmpty(zipCondition))
+            if (!string.IsNullOrWhiteSpace(zipCondition))
             {
                 searchResult = searchResult
                     .Where(p => p.Address.PostalCode.Contains(zipCondition, StringComparison.CurrentCultureIgnoreCase))

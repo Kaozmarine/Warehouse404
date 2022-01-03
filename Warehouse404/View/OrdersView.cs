@@ -167,7 +167,7 @@ namespace Warehouse404.View
                 countToCondition = int.MaxValue;
             }
 
-            if (string.IsNullOrEmpty(nameCondition) && priceFromCondition == 0.0 && priceToCondition == double.MaxValue && countFromCondition == 0 && countToCondition == int.MaxValue)
+            if (string.IsNullOrWhiteSpace(nameCondition) && priceFromCondition == 0.0 && priceToCondition == double.MaxValue && countFromCondition == 0 && countToCondition == int.MaxValue)
             {
                 if (itemsListView.Items.Count != orders.Count)
                 {
@@ -177,7 +177,7 @@ namespace Warehouse404.View
             }
 
             var searchResult = orders;
-            if (!string.IsNullOrEmpty(nameCondition))
+            if (!string.IsNullOrWhiteSpace(nameCondition))
             {
                 searchResult = searchResult
                     .Where(p => p.Id.ToString().Contains(nameCondition, StringComparison.CurrentCultureIgnoreCase))
